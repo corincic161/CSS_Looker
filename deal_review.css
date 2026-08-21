@@ -1,3 +1,275 @@
-{
-    color: red !important;
+/* ==========================================================
+   LOOKER REPORT TABLE
+   Custom "Deal Reviews" style
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. WHOLE TABLE
+   ---------------------------------------------------------- */
+
+.reportTable {
+    font-family: Arial, "Helvetica Neue", sans-serif !important;
+    color: #333333 !important;
+
+    /* Important: remove Traditional theme's 3px gaps */
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+
+    width: 100% !important;
+    background: #ffffff !important;
+}
+
+
+/* ----------------------------------------------------------
+   2. ALL HEADERS
+   ---------------------------------------------------------- */
+
+th.headerCell {
+    background: #ffffff !important;
+
+    color: #666666 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    padding: 11px 10px !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid #dddddd !important;
+
+    box-shadow: none !important;
+}
+
+
+/* Pivot/group headings:
+   Complete / In Progress / Not Requested / Requested / Row Total
+*/
+
+.headerCell.pivot {
+    background: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+
+/* Dimension header:
+   Cdr Type
+*/
+
+.headerCell.dimension {
+    background: #ffffff !important;
+}
+
+
+/* Measure headers:
+   Count Opportunities
+*/
+
+.headerCell.measure {
+    background: #ffffff !important;
+}
+
+
+/* Remove Traditional theme's special merged-header styling */
+
+.headerCell.merged {
+    background: #ffffff !important;
+}
+
+
+/* ----------------------------------------------------------
+   3. BODY CELLS
+   ---------------------------------------------------------- */
+
+.rowCell {
+    padding: 11px 10px !important;
+
+    vertical-align: middle !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid #eeeeee !important;
+
+    background: transparent !important;
+
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+}
+
+
+/* First/dimension column */
+
+.rowCell.dimension,
+.nonNumeric {
+    text-align: left !important;
+    font-weight: 500;
+}
+
+
+/* Numeric cells */
+
+.numeric {
+    text-align: center !important;
+}
+
+
+/* ----------------------------------------------------------
+   4. ZEBRA STRIPING
+   ---------------------------------------------------------- */
+
+.reportTable tbody tr:nth-child(even) {
+    background-color: #f6f6f6 !important;
+}
+
+.reportTable tbody tr:nth-child(odd) {
+    background-color: #ffffff !important;
+}
+
+
+/* Don't allow cells to hide row background */
+
+.reportTable tbody tr:nth-child(even) .rowCell {
+    background-color: #f6f6f6 !important;
+}
+
+.reportTable tbody tr:nth-child(odd) .rowCell {
+    background-color: #ffffff !important;
+}
+
+
+/* ----------------------------------------------------------
+   5. TOTAL ROW
+   ---------------------------------------------------------- */
+
+.total {
+    background: #ffffff !important;
+
+    border-top: 1px solid #bdbdbd !important;
+    border-bottom: 0 !important;
+
+    font-weight: 700 !important;
+
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+}
+
+
+/* ----------------------------------------------------------
+   6. REMOVE DEFAULT HOVER YELLOW
+   ---------------------------------------------------------- */
+
+.hover {
+    background-color: #f3f5f7 !important;
+}
+
+
+/* ----------------------------------------------------------
+   7. REMOVE DEFAULT MERGED CELL BACKGROUNDS
+   ---------------------------------------------------------- */
+
+.rowCell.merged {
+    background-color: inherit !important;
+}
+
+
+/* ----------------------------------------------------------
+   8. STATUS HEADER COLORS
+   ---------------------------------------------------------- */
+
+/*
+   Your current pivot order is:
+
+   1 = Complete
+   2 = In Progress
+   3 = Not Requested
+   4 = Requested
+   5 = Row Total
+*/
+
+
+/* COMPLETE */
+
+.reportTable thead tr:first-child th:nth-child(2) {
+    color: #3c9145 !important;
+}
+
+
+/* IN PROGRESS */
+
+.reportTable thead tr:first-child th:nth-child(3) {
+    color: #444444 !important;
+}
+
+
+/* NOT REQUESTED */
+
+.reportTable thead tr:first-child th:nth-child(4) {
+    color: #888888 !important;
+}
+
+
+/* REQUESTED */
+
+.reportTable thead tr:first-child th:nth-child(5) {
+    color: #e88913 !important;
+}
+
+
+/* ROW TOTAL */
+
+.reportTable thead tr:first-child th:last-child {
+    color: #333333 !important;
+    font-weight: 700 !important;
+}
+
+
+/* ----------------------------------------------------------
+   9. STATUS VALUE STYLING
+   ---------------------------------------------------------- */
+
+/*
+   Try to create the colored status blocks from your reference.
+   
+   NOTE:
+   Report Table's DOM can differ slightly depending on pivots,
+   so these selectors may need one small adjustment after we
+   see how your specific table renders them.
+*/
+
+
+/* COMPLETE */
+
+.reportTable tbody tr:not(:last-child) td:nth-child(2) {
+    color: #328a43 !important;
+    font-weight: 700 !important;
+}
+
+
+/* IN PROGRESS */
+
+.reportTable tbody tr:not(:last-child) td:nth-child(3) {
+    color: #444444 !important;
+    font-weight: 600 !important;
+}
+
+
+/* NOT REQUESTED */
+
+.reportTable tbody tr:not(:last-child) td:nth-child(4) {
+    color: #888888 !important;
+    font-weight: 600 !important;
+}
+
+
+/* REQUESTED */
+
+.reportTable tbody tr:not(:last-child) td:nth-child(5) {
+    color: #e88913 !important;
+    font-weight: 700 !important;
+}
+
+
+/* ROW TOTAL */
+
+.reportTable tbody td:last-child {
+    color: #333333 !important;
+    font-weight: 700 !important;
 }
