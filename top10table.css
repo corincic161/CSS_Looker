@@ -1,0 +1,282 @@
+/* =====================================================
+   TOP 20 OPPS — CLEAN STATUS MATRIX STYLE
+   ===================================================== */
+
+/* ---------- TABLE ---------- */
+
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background: #ffffff !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  color: #1f2937 !important;
+}
+
+
+/* ---------- HEADER ---------- */
+
+thead th {
+  background: #ffffff !important;
+
+  border: none !important;
+  border-bottom: 1px solid #d9d9d9 !important;
+
+  padding: 10px 8px !important;
+
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #6b7280 !important;
+
+  text-align: left !important;
+  vertical-align: bottom !important;
+
+  white-space: normal !important;
+  line-height: 1.25 !important;
+}
+
+
+/* ---------- BODY ---------- */
+
+tbody td {
+  border: none !important;
+
+  padding: 8px 8px !important;
+
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #374151 !important;
+
+  background: #ffffff !important;
+
+  vertical-align: middle !important;
+}
+
+
+/* Alternating rows */
+
+tbody tr:nth-child(even) td {
+  background: #f5f5f5 !important;
+}
+
+
+/* ---------- REMOVE VERTICAL GRID ---------- */
+
+thead th,
+tbody td {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+
+/* ---------- ROW NUMBER ---------- */
+
+thead th:first-child,
+tbody td:first-child {
+  width: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+
+  text-align: center !important;
+  color: #9ca3af !important;
+}
+
+
+/* ---------- ID ---------- */
+
+thead th:nth-child(2),
+tbody td:nth-child(2) {
+  width: 70px !important;
+}
+
+
+/* ---------- REGION ---------- */
+
+thead th:nth-child(3),
+tbody td:nth-child(3) {
+  width: 90px !important;
+}
+
+
+/* ---------- CLIENT ---------- */
+
+thead th:nth-child(4),
+tbody td:nth-child(4) {
+  min-width: 130px !important;
+}
+
+
+/* ---------- NAME ---------- */
+
+thead th:nth-child(5),
+tbody td:nth-child(5) {
+  min-width: 150px !important;
+}
+
+
+/* ---------- DEAL REVIEW STATUS ---------- */
+
+thead th:nth-child(6),
+tbody td:nth-child(6) {
+  min-width: 105px !important;
+}
+
+
+/* ---------- CDR TYPE ---------- */
+
+thead th:nth-child(7),
+tbody td:nth-child(7) {
+  min-width: 80px !important;
+}
+
+
+/* ---------- REPORTING STAGE ---------- */
+
+thead th:nth-child(8),
+tbody td:nth-child(8) {
+  min-width: 130px !important;
+}
+
+
+/* ---------- START DATE ---------- */
+
+thead th:nth-child(9),
+tbody td:nth-child(9) {
+  min-width: 90px !important;
+}
+
+
+/* ---------- PROJECT MARGIN ---------- */
+
+thead th:nth-child(10),
+tbody td:nth-child(10) {
+  width: 95px !important;
+  text-align: center !important;
+}
+
+
+/* ---------- TOTAL TCV ---------- */
+
+thead th:nth-child(11),
+tbody td:nth-child(11) {
+  min-width: 95px !important;
+  text-align: right !important;
+  font-weight: 600 !important;
+}
+
+
+/* =====================================================
+   TEXT OVERFLOW
+   ===================================================== */
+
+/* Keep long values neat instead of expanding rows */
+
+tbody td:nth-child(4),
+tbody td:nth-child(5),
+tbody td:nth-child(8) {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 180px !important;
+}
+
+
+/* =====================================================
+   DEAL REVIEW STATUS
+   ===================================================== */
+
+/*
+   Keep status column slightly stronger.
+   If Looker's generated HTML gives us access to the
+   inner span, we can later turn individual statuses
+   into colored pills.
+*/
+
+tbody td:nth-child(6) {
+  font-weight: 500 !important;
+}
+
+
+/* =====================================================
+   CDR TYPE
+   ===================================================== */
+
+tbody td:nth-child(7) {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #4b5563 !important;
+}
+
+
+/* =====================================================
+   TOTAL TCV
+   ===================================================== */
+
+tbody td:nth-child(11) {
+  color: #111827 !important;
+}
+
+
+/* =====================================================
+   TOTAL ROW
+   ===================================================== */
+
+tbody tr:last-child td {
+  background: #ffffff !important;
+
+  border-top: 1px solid #cfcfcf !important;
+
+  padding-top: 11px !important;
+  padding-bottom: 11px !important;
+
+  font-weight: 700 !important;
+}
+
+
+/* Total value */
+
+tbody tr:last-child td:last-child {
+  color: #111827 !important;
+  font-size: 13px !important;
+}
+
+
+/* =====================================================
+   HOVER
+   ===================================================== */
+
+tbody tr:hover td {
+  background: #f9fafb !important;
+}
+
+
+/* =====================================================
+   REMOVE DEFAULT LOOKER SHADOWS / HEAVY BORDERS
+   ===================================================== */
+
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  box-shadow: none !important;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+   ===================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
