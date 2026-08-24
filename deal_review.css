@@ -1,11 +1,11 @@
 /* =========================================
    STATUS MATRIX - LOOKER TABLE
-   CLEAN VERSION + NO HOVER
+   COMPACT + NO HOVER + NO INFO BOX
    ========================================= */
 
 
 /* =========================================
-   HIDE TOP SUMMARY / SINGLE VALUE SECTION
+   HIDE TOP SUMMARY / INFO ELEMENTS
    ========================================= */
 
 .single-value,
@@ -13,32 +13,78 @@
 .single-value-container,
 .single_value_container,
 .vis-single-value,
-.vis-single_value {
+.vis-single_value,
+.tooltip,
+.vis-tooltip,
+.looker-tooltip,
+.table-tooltip,
+.cell-tooltip,
+.hover-tooltip,
+[role="tooltip"],
+[aria-live="polite"] {
   display: none !important;
   visibility: hidden !important;
-}
-
-/* Remove space left by hidden summary */
-.single-value + *,
-.single_value + *,
-.single-value-container + *,
-.single_value_container + * {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 
 /* =========================================
-   MAIN TABLE
+   TABLE
    ========================================= */
 
 table {
   width: 100% !important;
+  table-layout: fixed !important;
   border-collapse: collapse !important;
+
   background: #ffffff !important;
 
   font-family: Arial, Helvetica, sans-serif !important;
   color: #1f2937 !important;
+
+  box-shadow: none !important;
+}
+
+
+/* =========================================
+   COLUMN WIDTHS
+   ========================================= */
+
+/* Review Type */
+thead th:nth-child(1),
+tbody td:nth-child(1) {
+  width: 26% !important;
+}
+
+/* Complete */
+thead th:nth-child(2),
+tbody td:nth-child(2) {
+  width: 15% !important;
+}
+
+/* In Progress */
+thead th:nth-child(3),
+tbody td:nth-child(3) {
+  width: 15% !important;
+}
+
+/* Not Requested */
+thead th:nth-child(4),
+tbody td:nth-child(4) {
+  width: 16% !important;
+}
+
+/* Requested */
+thead th:nth-child(5),
+tbody td:nth-child(5) {
+  width: 15% !important;
+}
+
+/* Total */
+thead th:nth-child(6),
+tbody td:nth-child(6) {
+  width: 13% !important;
 }
 
 
@@ -52,7 +98,7 @@ thead th {
   border: none !important;
   border-bottom: 1px solid #d9d9d9 !important;
 
-  padding: 12px 14px !important;
+  padding: 10px 8px !important;
 
   font-size: 12px !important;
   font-weight: 600 !important;
@@ -63,39 +109,42 @@ thead th {
   vertical-align: bottom !important;
 
   box-shadow: none !important;
+  outline: none !important;
 }
 
 
-/* First column = Review Type */
+/* First column */
 
 thead th:first-child {
   text-align: left !important;
-  min-width: 160px !important;
+
+  /* IMPORTANT:
+     removed min-width: 160px */
 }
 
 
-/* Complete header */
+/* Complete */
 
 thead th:nth-child(2) {
   color: #2f8f46 !important;
 }
 
 
-/* In Progress header */
+/* In Progress */
 
 thead th:nth-child(3) {
   color: #555555 !important;
 }
 
 
-/* Not Requested header */
+/* Not Requested */
 
 thead th:nth-child(4) {
   color: #737373 !important;
 }
 
 
-/* Requested header */
+/* Requested */
 
 thead th:nth-child(5) {
   color: #f28c00 !important;
@@ -109,7 +158,7 @@ thead th:nth-child(5) {
 tbody td {
   border: none !important;
 
-  padding: 12px 14px !important;
+  padding: 10px 8px !important;
 
   font-size: 13px !important;
   font-weight: 400 !important;
@@ -120,6 +169,10 @@ tbody td {
   background: #ffffff !important;
 
   box-shadow: none !important;
+  outline: none !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 
@@ -134,6 +187,8 @@ tbody td:first-child {
   font-weight: 600 !important;
 
   color: #111827 !important;
+
+  white-space: normal !important;
 }
 
 
@@ -154,69 +209,9 @@ tbody tr:nth-child(even) td {
    STATUS PILLS
    ========================================= */
 
-
-/* COMPLETE */
-
-tbody td:nth-child(2) span {
-  display: inline-block !important;
-
-  min-width: 38px !important;
-
-  padding: 7px 9px !important;
-
-  background: #e7f3e9 !important;
-  color: #2f8f46 !important;
-
-  border-radius: 7px !important;
-
-  font-weight: 700 !important;
-
-  text-align: center !important;
-}
-
-
-/* IN PROGRESS */
-
-tbody td:nth-child(3) span {
-  display: inline-block !important;
-
-  min-width: 38px !important;
-
-  padding: 7px 9px !important;
-
-  background: #eeeeee !important;
-  color: #555555 !important;
-
-  border-radius: 7px !important;
-
-  font-weight: 700 !important;
-
-  text-align: center !important;
-}
-
-
-/* NOT REQUESTED */
-
-tbody td:nth-child(4) span {
-  display: inline-block !important;
-
-  min-width: 38px !important;
-
-  padding: 7px 9px !important;
-
-  background: #f1f1f1 !important;
-  color: #777777 !important;
-
-  border-radius: 7px !important;
-
-  font-weight: 700 !important;
-
-  text-align: center !important;
-}
-
-
-/* REQUESTED */
-
+tbody td:nth-child(2) span,
+tbody td:nth-child(3) span,
+tbody td:nth-child(4) span,
 tbody td:nth-child(5) span {
   display: inline-block !important;
 
@@ -224,19 +219,47 @@ tbody td:nth-child(5) span {
 
   padding: 7px 9px !important;
 
-  background: #fff0dc !important;
-  color: #f28c00 !important;
-
   border-radius: 7px !important;
 
   font-weight: 700 !important;
-
   text-align: center !important;
 }
 
 
+/* Complete */
+
+tbody td:nth-child(2) span {
+  background: #e7f3e9 !important;
+  color: #2f8f46 !important;
+}
+
+
+/* In Progress */
+
+tbody td:nth-child(3) span {
+  background: #eeeeee !important;
+  color: #555555 !important;
+}
+
+
+/* Not Requested */
+
+tbody td:nth-child(4) span {
+  background: #f1f1f1 !important;
+  color: #777777 !important;
+}
+
+
+/* Requested */
+
+tbody td:nth-child(5) span {
+  background: #fff0dc !important;
+  color: #f28c00 !important;
+}
+
+
 /* =========================================
-   ROW TOTAL
+   TOTAL COLUMN
    ========================================= */
 
 tbody td:last-child {
@@ -246,7 +269,7 @@ tbody td:last-child {
 
 
 /* =========================================
-   GRAND TOTAL ROW
+   GRAND TOTAL
    ========================================= */
 
 tbody tr:last-child td {
@@ -254,14 +277,14 @@ tbody tr:last-child td {
 
   border-top: 1px solid #cfcfcf !important;
 
-  padding-top: 16px !important;
+  padding-top: 14px !important;
   padding-bottom: 12px !important;
 
   font-weight: 700 !important;
 }
 
 
-/* Remove pills from grand total */
+/* Remove pills from totals */
 
 tbody tr:last-child td span {
   background: transparent !important;
@@ -274,28 +297,17 @@ tbody tr:last-child td span {
 }
 
 
-/* Complete total */
-
 tbody tr:last-child td:nth-child(2) span {
   color: #2f8f46 !important;
 }
-
-
-/* In Progress total */
 
 tbody tr:last-child td:nth-child(3) span {
   color: #555555 !important;
 }
 
-
-/* Not Requested total */
-
 tbody tr:last-child td:nth-child(4) span {
   color: #777777 !important;
 }
-
-
-/* Requested total */
 
 tbody tr:last-child td:nth-child(5) span {
   color: #f28c00 !important;
@@ -303,13 +315,8 @@ tbody tr:last-child td:nth-child(5) span {
 
 
 /* =========================================
-   REMOVE TABLE HOVER EFFECT
+   COMPLETELY REMOVE ROW HOVER
    ========================================= */
-
-/*
-   Force rows to keep their normal background
-   when the mouse is over them.
-*/
 
 tbody tr:nth-child(odd):hover td {
   background: #ffffff !important;
@@ -319,48 +326,35 @@ tbody tr:nth-child(even):hover td {
   background: #f5f5f5 !important;
 }
 
-
-/* Keep total row white on hover */
-
 tbody tr:last-child:hover td {
   background: #ffffff !important;
 }
 
 
 /* =========================================
-   REMOVE HOVER TOOLTIP / POPUP
+   DISABLE BODY INTERACTION
    ========================================= */
 
-.tooltip,
-.vis-tooltip,
-.looker-tooltip,
-.table-tooltip,
-.cell-tooltip,
-.hover-tooltip,
-[role="tooltip"] {
-  display: none !important;
-
-  visibility: hidden !important;
-
-  opacity: 0 !important;
-
+tbody,
+tbody tr,
+tbody td,
+tbody td *,
+tbody tr * {
   pointer-events: none !important;
+  cursor: default !important;
 }
 
 
 /* =========================================
-   REMOVE DEFAULT LOOKER EFFECTS
+   REMOVE ALL HOVER VISUAL EFFECTS
    ========================================= */
 
+table,
+thead,
+tbody,
+tr,
 th,
-td {
-  box-shadow: none !important;
-  outline: none !important;
-}
-
-
-/* Remove hover shadows / outlines */
-
+td,
 th:hover,
 td:hover,
 tr:hover {
@@ -370,34 +364,23 @@ tr:hover {
 
 
 /* =========================================
-   KEEP STATUS PILLS CORRECT ON HOVER
+   KEEP PILLS SAME ON HOVER
    ========================================= */
-
-/* Complete */
 
 tbody tr:hover td:nth-child(2) span {
   background: #e7f3e9 !important;
   color: #2f8f46 !important;
 }
 
-
-/* In Progress */
-
 tbody tr:hover td:nth-child(3) span {
   background: #eeeeee !important;
   color: #555555 !important;
 }
 
-
-/* Not Requested */
-
 tbody tr:hover td:nth-child(4) span {
   background: #f1f1f1 !important;
   color: #777777 !important;
 }
-
-
-/* Requested */
 
 tbody tr:hover td:nth-child(5) span {
   background: #fff0dc !important;
@@ -405,56 +388,10 @@ tbody tr:hover td:nth-child(5) span {
 }
 
 
-/* Grand total must NOT get pills on hover */
+/* Total row should never get pills */
 
 tbody tr:last-child:hover td span {
   background: transparent !important;
   padding: 0 !important;
   border-radius: 0 !important;
-}
-
-
-/* =========================================
-   CLEAN FINAL TABLE
-   ========================================= */
-
-table,
-thead,
-tbody,
-tr,
-th,
-td {
-  box-shadow: none !important;
-}
-
-
-/* =========================================
-   DISABLE ALL TABLE CELL INTERACTION
-   ========================================= */
-
-tbody td,
-tbody td *,
-tbody tr,
-tbody tr * {
-  pointer-events: none !important;
-}
-
-/* Keep header available */
-thead,
-thead * {
-  pointer-events: auto !important;
-}
-
-/* Hide common Looker tooltip elements */
-.tooltip,
-.vis-tooltip,
-.looker-tooltip,
-.table-tooltip,
-.cell-tooltip,
-.hover-tooltip,
-[role="tooltip"],
-[aria-live="polite"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
 }
