@@ -1,51 +1,45 @@
 /* ============================================================
-   LOOKER REPORT TABLE - CLEAN VERSION
-
-   Goals:
-   1. Numbers centered exactly in measure columns
-   2. NO colored backgrounds / badges
-   3. Drill-down remains clickable
-   4. Hide dynamic hover/field-name display above table
-   5. Keep column header colors
+   LOOKER REPORT TABLE
+   CLEAN VERSION
    ============================================================ */
 
 
 /* ============================================================
-   1. TABLE
+   BASE TABLE
    ============================================================ */
 
 table {
     width: 100% !important;
     border-collapse: collapse !important;
     border-spacing: 0 !important;
-    table-layout: fixed !important;
 
     background: #ffffff !important;
 
     font-family: Arial, Helvetica, sans-serif !important;
     font-size: 12px !important;
-    color: #202124 !important;
+
+    color: #222222 !important;
 
     box-shadow: none !important;
 }
 
 
 /* ============================================================
-   2. HEADER
+   HEADERS
    ============================================================ */
 
 thead {
     background: #ffffff !important;
 }
 
+
 thead tr {
     background: #ffffff !important;
 }
 
+
 thead th {
     background: #ffffff !important;
-
-    color: #666666 !important;
 
     font-size: 11px !important;
     font-weight: 600 !important;
@@ -63,62 +57,52 @@ thead th {
 
 
 /* ============================================================
-   3. FIRST / DIMENSION HEADER
+   HEADER COLORS
    ============================================================ */
 
-thead th:first-child {
-    text-align: left !important;
-}
-
-
-/* ============================================================
-   4. HEADER COLORS
-   ============================================================ */
 
 /* Complete */
 
-thead th:nth-child(1) {
+thead th:nth-child(1),
+thead th:nth-child(1) * {
     color: #666666 !important;
 }
 
 
 /* In Progress */
 
-thead th:nth-child(2) {
+thead th:nth-child(2),
+thead th:nth-child(2) * {
     color: #f39c12 !important;
 }
 
 
 /* Not Requested */
 
-thead th:nth-child(3) {
+thead th:nth-child(3),
+thead th:nth-child(3) * {
     color: #555555 !important;
 }
 
 
 /* Requested */
 
-thead th:nth-child(4) {
+thead th:nth-child(4),
+thead th:nth-child(4) * {
     color: #2f9145 !important;
 }
 
 
 /* Row Total */
 
-thead th:nth-child(5) {
+thead th:nth-child(5),
+thead th:nth-child(5) * {
     color: #222222 !important;
 }
 
 
-/* Make nested header elements inherit the color */
-
-thead th * {
-    color: inherit !important;
-}
-
-
 /* ============================================================
-   5. BODY ROWS
+   BODY
    ============================================================ */
 
 tbody tr {
@@ -126,11 +110,12 @@ tbody tr {
 }
 
 
-/* Alternate row */
+/* alternating row */
 
 tbody tr:nth-child(even):not(:last-child) {
     background: #f5f5f5 !important;
 }
+
 
 tbody tr:nth-child(odd):not(:last-child) {
     background: #ffffff !important;
@@ -138,13 +123,14 @@ tbody tr:nth-child(odd):not(:last-child) {
 
 
 /* ============================================================
-   6. BODY CELLS
+   CELLS
    ============================================================ */
 
 tbody td {
     background: transparent !important;
+    background-color: transparent !important;
 
-    padding: 7px 6px !important;
+    padding: 7px 8px !important;
 
     border: none !important;
     border-bottom: 1px solid #dddddd !important;
@@ -154,8 +140,6 @@ tbody td {
     font-size: 12px !important;
     font-weight: 500 !important;
 
-    line-height: 1.3 !important;
-
     box-shadow: none !important;
 
     pointer-events: auto !important;
@@ -163,7 +147,7 @@ tbody td {
 
 
 /* ============================================================
-   7. FIRST COLUMN / REVIEW TYPE
+   REVIEW TYPE
    ============================================================ */
 
 tbody td:first-child {
@@ -171,19 +155,13 @@ tbody td:first-child {
 
     color: #111111 !important;
 
-    font-weight: 500 !important;
-
     padding-left: 12px !important;
 }
 
 
 /* ============================================================
-   8. CENTER EVERY NUMERIC COLUMN
+   CENTER ALL NUMBERS
    ============================================================ */
-
-/*
-   Center the TD itself.
-*/
 
 tbody td:not(:first-child) {
     text-align: center !important;
@@ -191,33 +169,45 @@ tbody td:not(:first-child) {
 
 
 /*
-   Looker may put the number inside several nested elements.
-   Center those too.
+   Report Table creates wrappers inside cells.
+   Center those wrappers as well.
 */
 
-tbody td:not(:first-child) > div,
-tbody td:not(:first-child) > span,
-tbody td:not(:first-child) > a {
+tbody td:not(:first-child) > div {
+    width: 100% !important;
+
+    display: flex !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
     text-align: center !important;
+
+    background: transparent !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+tbody td:not(:first-child) > span {
+    display: inline-block !important;
+
+    text-align: center !important;
+
+    background: transparent !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
 }
 
 
 /* ============================================================
-   9. DRILL-DOWN LINKS
+   DRILL LINKS
    ============================================================ */
 
-/*
-   CRITICAL:
-   No background.
-   No badge.
-   No width.
-   No large rectangular clickable area.
-
-   The link remains clickable.
-*/
-
-tbody td:not(:first-child) a {
-    display: inline !important;
+tbody td a {
+    display: inline-block !important;
 
     width: auto !important;
     min-width: 0 !important;
@@ -225,7 +215,7 @@ tbody td:not(:first-child) a {
 
     height: auto !important;
 
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
 
     background: transparent !important;
@@ -238,11 +228,6 @@ tbody td:not(:first-child) a {
 
     text-align: center !important;
 
-    font-size: 12px !important;
-    font-weight: 500 !important;
-
-    line-height: normal !important;
-
     text-decoration: none !important;
 
     cursor: pointer !important;
@@ -251,7 +236,7 @@ tbody td:not(:first-child) a {
 }
 
 
-/* Remove backgrounds from elements nested in drill link */
+/* nested Looker link elements */
 
 tbody td a span,
 tbody td a div {
@@ -269,92 +254,38 @@ tbody td a div {
 
 
 /* ============================================================
-   10. FORCE CENTERING OF LOOKER CELL CONTENT
+   REMOVE ALL CELL VISUALIZATION / NUMBER BACKGROUNDS
    ============================================================ */
 
-/*
-   Some Report Table versions use a wrapper that stretches
-   across the TD.
-
-   This forces that wrapper to center its content.
-*/
-
-tbody td:not(:first-child) > div {
-    width: 100% !important;
-
-    display: flex !important;
-
-    justify-content: center !important;
-    align-items: center !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    background: transparent !important;
-}
-
-
-/*
-   Same treatment if there is another nested wrapper.
-*/
-
-tbody td:not(:first-child) > div > div {
-    width: auto !important;
-
-    margin-left: auto !important;
-    margin-right: auto !important;
-
-    padding: 0 !important;
-
-    background: transparent !important;
+tbody td div,
+tbody td span,
+tbody td a {
+    background-image: none !important;
 }
 
 
 /* ============================================================
-   11. REMOVE ALL NUMERIC BACKGROUNDS
+   NUMBER COLORS
+   MATCH COLUMN HEADER COLORS
    ============================================================ */
 
-tbody td:nth-child(2),
-tbody td:nth-child(3),
-tbody td:nth-child(4),
-tbody td:nth-child(5),
-tbody td:nth-child(6),
-
-tbody td:nth-child(2) a,
-tbody td:nth-child(3) a,
-tbody td:nth-child(4) a,
-tbody td:nth-child(5) a,
-tbody td:nth-child(6) a,
-
-tbody td:nth-child(2) span,
-tbody td:nth-child(3) span,
-tbody td:nth-child(4) span,
-tbody td:nth-child(5) span,
-tbody td:nth-child(6) span {
-
-    background: transparent !important;
-    background-color: transparent !important;
-
-    box-shadow: none !important;
-}
-
-
-/* ============================================================
-   12. NUMBER COLORS
-   ============================================================ */
 
 /* Complete */
 
 tbody td:nth-child(2),
-tbody td:nth-child(2) a {
-    color: #555555 !important;
+tbody td:nth-child(2) *,
+tbody td:nth-child(2) a,
+tbody td:nth-child(2) a:visited {
+    color: #666666 !important;
 }
 
 
 /* In Progress */
 
 tbody td:nth-child(3),
-tbody td:nth-child(3) a {
+tbody td:nth-child(3) *,
+tbody td:nth-child(3) a,
+tbody td:nth-child(3) a:visited {
     color: #f39c12 !important;
 }
 
@@ -362,15 +293,19 @@ tbody td:nth-child(3) a {
 /* Not Requested */
 
 tbody td:nth-child(4),
-tbody td:nth-child(4) a {
-    color: #333333 !important;
+tbody td:nth-child(4) *,
+tbody td:nth-child(4) a,
+tbody td:nth-child(4) a:visited {
+    color: #555555 !important;
 }
 
 
 /* Requested */
 
 tbody td:nth-child(5),
-tbody td:nth-child(5) a {
+tbody td:nth-child(5) *,
+tbody td:nth-child(5) a,
+tbody td:nth-child(5) a:visited {
     color: #2f9145 !important;
 }
 
@@ -378,34 +313,30 @@ tbody td:nth-child(5) a {
 /* Row Total */
 
 tbody td:nth-child(6),
-tbody td:nth-child(6) a {
-    color: #111111 !important;
+tbody td:nth-child(6) *,
+tbody td:nth-child(6) a,
+tbody td:nth-child(6) a:visited {
+    color: #222222 !important;
 
     font-weight: 700 !important;
 }
 
 
 /* ============================================================
-   13. DRILL HOVER
+   HOVER
+   NO BACKGROUND
    ============================================================ */
-
-/*
-   Do NOT create a background when hovering.
-   Only subtle underline.
-*/
 
 tbody td a:hover {
     background: transparent !important;
     background-color: transparent !important;
 
     text-decoration: underline !important;
-
-    cursor: pointer !important;
 }
 
 
 /* ============================================================
-   14. TOTAL ROW
+   TOTAL ROW
    ============================================================ */
 
 tbody tr:last-child {
@@ -420,13 +351,10 @@ tbody tr:last-child td {
     border-bottom: none !important;
 
     padding-top: 11px !important;
-    padding-bottom: 8px !important;
 
     font-weight: 700 !important;
 }
 
-
-/* TOTAL label */
 
 tbody tr:last-child td:first-child {
     color: #333333 !important;
@@ -437,85 +365,54 @@ tbody tr:last-child td:first-child {
 }
 
 
-/* Total Complete */
-
-tbody tr:last-child td:nth-child(2),
-tbody tr:last-child td:nth-child(2) a {
-    color: #555555 !important;
-}
-
-
-/* Total In Progress */
-
-tbody tr:last-child td:nth-child(3),
-tbody tr:last-child td:nth-child(3) a {
-    color: #f39c12 !important;
-}
-
-
-/* Total Not Requested */
-
-tbody tr:last-child td:nth-child(4),
-tbody tr:last-child td:nth-child(4) a {
-    color: #222222 !important;
-}
-
-
-/* Total Requested */
-
-tbody tr:last-child td:nth-child(5),
-tbody tr:last-child td:nth-child(5) a {
-    color: #2f9145 !important;
-}
-
-
-/* Grand Total */
-
-tbody tr:last-child td:nth-child(6),
-tbody tr:last-child td:nth-child(6) a {
-    color: #111111 !important;
-
-    font-weight: 700 !important;
-}
-
-
 /* ============================================================
-   15. REMOVE TOP DYNAMIC FIELD / HOVER DISPLAY
+   REPORT TABLE EXTRA HEADER / UNIT DISPLAY
    ============================================================ */
 
 /*
-   Report Table can create an extra field-name/measure-name
-   display above the real table header.
-
-   Hide header rows that contain only one cell.
+   Report Table supports units / abbreviated field information.
+   Remove empty/unit-style elements from the presentation layer.
 */
 
-thead tr:has(th:only-child) {
+.unit {
     display: none !important;
 }
 
 
-/*
-   Same situation if Looker uses TD instead of TH.
-*/
-
-thead tr:has(td:only-child) {
+.units {
     display: none !important;
 }
 
 
-/*
-   Hide standalone # links / controls in the header.
-*/
+.unit-label {
+    display: none !important;
+}
 
-thead a[href="#"],
-thead a:not([href]) {
+
+.field-unit {
     display: none !important;
 }
 
 
 /* ============================================================
-   16. REMOVE HEADER GENERATED LABELS
+   TOOLTIP / HOVER LABEL ELEMENTS
+   ============================================================ */
+
+.tooltip,
+.tooltip-content,
+.tooltiptext,
+[role="tooltip"] {
+    display: none !important;
+    visibility: hidden !important;
+
+    opacity: 0 !important;
+
+    pointer-events: none !important;
+}
+
+
+/* ============================================================
+   REMOVE GENERATED HEADER CONTENT
    ============================================================ */
 
 thead th::before,
@@ -523,34 +420,13 @@ thead th::after,
 thead td::before,
 thead td::after {
     content: none !important;
+
     display: none !important;
 }
 
 
 /* ============================================================
-   17. REMOVE TITLE ATTRIBUTE TOOLTIP-LIKE ELEMENTS
-   ============================================================ */
-
-thead [role="tooltip"],
-table [role="tooltip"] {
-    display: none !important;
-}
-
-
-/* ============================================================
-   18. HIDE COMMON TOOLTIP ELEMENTS INSIDE TABLE
-   ============================================================ */
-
-table .tooltip,
-table .tooltip-content,
-table .tooltiptext,
-table .popover {
-    display: none !important;
-}
-
-
-/* ============================================================
-   19. REMOVE HEADER LINK DECORATION
+   HEADER LINKS
    ============================================================ */
 
 thead a,
@@ -562,23 +438,14 @@ thead a:active {
 
 
 /* ============================================================
-   20. PRESERVE DRILL LINKS
+   KEEP DRILL-DOWN WORKING
    ============================================================ */
 
-tbody a,
-tbody a:visited,
-tbody a:active {
-    background: transparent !important;
-
-    text-decoration: none !important;
-
+tbody a {
     pointer-events: auto !important;
+    cursor: pointer !important;
 }
 
-
-/* ============================================================
-   21. REMOVE POSSIBLE CELL OVERLAYS
-   ============================================================ */
 
 tbody td::before,
 tbody td::after {
@@ -587,20 +454,7 @@ tbody td::after {
 
 
 /* ============================================================
-   22. ROW HOVER
-   ============================================================ */
-
-tbody tr:nth-child(even):not(:last-child):hover {
-    background: #f5f5f5 !important;
-}
-
-tbody tr:nth-child(odd):not(:last-child):hover {
-    background: #ffffff !important;
-}
-
-
-/* ============================================================
-   23. CLEAN TABLE CHROME
+   CLEAN CHROME
    ============================================================ */
 
 table,
@@ -611,8 +465,3 @@ th,
 td {
     box-shadow: none !important;
 }
-
-
-/* ============================================================
-   END
-   ============================================================ */
