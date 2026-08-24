@@ -1030,6 +1030,163 @@ table.reportTable thead tr:first-child {
     color: #111111 !important;
 }
 
+/* ============================================================
+   ALL REPORT TABLE TEXT BLACK
+   COLOR ONLY — DOES NOT CHANGE LAYOUT
+   ============================================================ */
+
+
+/* Entire table */
+.reportTable,
+.reportTable * {
+    color: #111111 !important;
+}
+
+
+/* Headers */
+.reportTable th,
+.reportTable th *,
+.reportTable .headerCell,
+.reportTable .headerCell * {
+    color: #111111 !important;
+}
+
+
+/* Review Type / index */
+.reportTable .rowCell,
+.reportTable .rowCell *,
+.reportTable .indexCell,
+.reportTable .indexCell * {
+    color: #111111 !important;
+}
+
+
+/* Numeric values */
+.reportTable .numeric,
+.reportTable .numeric * {
+    color: #111111 !important;
+}
+
+
+/* Rendered measure values */
+.reportTable .rectElem,
+.reportTable .rectElem *,
+.reportTable .rectElem.animated,
+.reportTable .rectElem.animated * {
+    color: #111111 !important;
+}
+
+
+/* Drill-down links */
+.reportTable a,
+.reportTable a:link,
+.reportTable a:visited,
+.reportTable a:hover,
+.reportTable a:active,
+.reportTable a * {
+    color: #111111 !important;
+}
+
+
+/* Totals */
+.reportTable .total,
+.reportTable .total *,
+.reportTable .subtotal,
+.reportTable .subtotal *,
+.reportTable tbody tr:last-child td,
+.reportTable tbody tr:last-child td * {
+    color: #111111 !important;
+}
+
+
+/* Special Report Table states */
+.reportTable .focus,
+.reportTable .focus *,
+.reportTable .hover,
+.reportTable .hover * {
+    color: #111111 !important;
+}
+
+
+/* Override all previous column-specific colors */
+.reportTable thead tr:first-child th:nth-child(1),
+.reportTable thead tr:first-child th:nth-child(1) *,
+.reportTable thead tr:first-child th:nth-child(2),
+.reportTable thead tr:first-child th:nth-child(2) *,
+.reportTable thead tr:first-child th:nth-child(3),
+.reportTable thead tr:first-child th:nth-child(3) *,
+.reportTable thead tr:first-child th:nth-child(4),
+.reportTable thead tr:first-child th:nth-child(4) *,
+.reportTable thead tr:first-child th:nth-child(5),
+.reportTable thead tr:first-child th:nth-child(5) * {
+    color: #111111 !important;
+}
+
+
+/* Override all # header colors */
+.reportTable thead tr:last-child th:nth-child(1),
+.reportTable thead tr:last-child th:nth-child(1) *,
+.reportTable thead tr:last-child th:nth-child(2),
+.reportTable thead tr:last-child th:nth-child(2) *,
+.reportTable thead tr:last-child th:nth-child(3),
+.reportTable thead tr:last-child th:nth-child(3) *,
+.reportTable thead tr:last-child th:nth-child(4),
+.reportTable thead tr:last-child th:nth-child(4) *,
+.reportTable thead tr:last-child th:nth-child(5),
+.reportTable thead tr:last-child th:nth-child(5) *,
+.reportTable thead tr:last-child th:nth-child(6),
+.reportTable thead tr:last-child th:nth-child(6) * {
+    color: #111111 !important;
+}
+
+
+/* Override previous rectElem status colors */
+.reportTable tbody tr .rectElem:nth-of-type(1),
+.reportTable tbody tr .rectElem:nth-of-type(1) *,
+.reportTable tbody tr .rectElem:nth-of-type(2),
+.reportTable tbody tr .rectElem:nth-of-type(2) *,
+.reportTable tbody tr .rectElem:nth-of-type(3),
+.reportTable tbody tr .rectElem:nth-of-type(3) *,
+.reportTable tbody tr .rectElem:nth-of-type(4),
+.reportTable tbody tr .rectElem:nth-of-type(4) *,
+.reportTable tbody tr .rectElem:nth-of-type(5),
+.reportTable tbody tr .rectElem:nth-of-type(5) * {
+    color: #111111 !important;
+}
+
+
+/* Override previous numeric status colors */
+.reportTable tbody tr .numeric:nth-of-type(1),
+.reportTable tbody tr .numeric:nth-of-type(1) *,
+.reportTable tbody tr .numeric:nth-of-type(2),
+.reportTable tbody tr .numeric:nth-of-type(2) *,
+.reportTable tbody tr .numeric:nth-of-type(3),
+.reportTable tbody tr .numeric:nth-of-type(3) *,
+.reportTable tbody tr .numeric:nth-of-type(4),
+.reportTable tbody tr .numeric:nth-of-type(4) *,
+.reportTable tbody tr .numeric:nth-of-type(5),
+.reportTable tbody tr .numeric:nth-of-type(5) * {
+    color: #111111 !important;
+}
+
+
+/* SVG text fallback */
+.reportTable svg text,
+.reportTable svg tspan {
+    fill: #111111 !important;
+    color: #111111 !important;
+}
+
+
+/* ============================================================
+   ABSOLUTE FINAL OVERRIDE
+   KEEP THIS AS THE LAST RULE IN THE CSS
+   ============================================================ */
+
+.reportTable * {
+    color: #111111 !important;
+}
+
 
 /* ============================================================
    END — ALL TEXT BLACK
