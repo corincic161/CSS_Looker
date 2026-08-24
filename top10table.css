@@ -376,3 +376,117 @@ table.reportTable * {
 .reportTable td {
     box-shadow: none !important;
 }
+
+
+/* ============================================================
+   FIX TABLE POSITION + COLUMN WIDTHS
+   ============================================================ */
+
+/* Force table to use available width normally */
+table.reportTable {
+    width: 100% !important;
+    table-layout: fixed !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    position: relative !important;
+    top: 0 !important;
+
+    vertical-align: top !important;
+}
+
+
+/* Remove space from table sections */
+.reportTable thead,
+.reportTable tbody,
+.reportTable tr {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+
+/* ID */
+.reportTable th:nth-child(1),
+.reportTable td:nth-child(1) {
+    width: 55px !important;
+}
+
+
+/* Region */
+.reportTable th:nth-child(2),
+.reportTable td:nth-child(2) {
+    width: 55px !important;
+}
+
+
+/* Client */
+.reportTable th:nth-child(3),
+.reportTable td:nth-child(3) {
+    width: 125px !important;
+}
+
+
+/* Name - give this most of the space */
+.reportTable th:nth-child(4),
+.reportTable td:nth-child(4) {
+    width: 470px !important;
+}
+
+
+/* Deal Review Status */
+.reportTable th:nth-child(5),
+.reportTable td:nth-child(5) {
+    width: 85px !important;
+}
+
+
+/* CDR Type */
+.reportTable th:nth-child(6),
+.reportTable td:nth-child(6) {
+    width: 60px !important;
+}
+
+
+/* Reporting Stage */
+.reportTable th:nth-child(7),
+.reportTable td:nth-child(7) {
+    width: 110px !important;
+}
+
+
+/* Start Date */
+.reportTable th:nth-child(8),
+.reportTable td:nth-child(8) {
+    width: 70px !important;
+}
+
+
+/* Estimated Project Margin % */
+.reportTable th:nth-child(9),
+.reportTable td:nth-child(9) {
+    width: 110px !important;
+}
+
+
+/* Total TCV */
+.reportTable th:nth-child(10),
+.reportTable td:nth-child(10) {
+    width: 110px !important;
+}
+
+
+/* Prevent Name from making the table wider */
+.reportTable th,
+.reportTable td {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+
+/* Keep Total TCV compact */
+.reportTable th:nth-child(10),
+.reportTable td:nth-child(10) {
+    text-align: right !important;
+    white-space: nowrap !important;
+}
