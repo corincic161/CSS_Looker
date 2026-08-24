@@ -970,72 +970,50 @@ table.reportTable thead tr:first-child {
    ============================================================ */
 
 /* ============================================================
-   RESET ALL COLUMN COLORS TO BLACK
-   KEEP ALL EXISTING LAYOUT / ALIGNMENT
+   FINAL COLOR OVERRIDE
+   ALL COLUMNS BLACK
    ============================================================ */
 
 
 /* Top column titles */
-
-.reportTable thead tr:first-child th,
-.reportTable thead tr:first-child th * {
+.reportTable thead th,
+.reportTable thead th *,
+.reportTable .headerCell,
+.reportTable .headerCell * {
     color: #111111 !important;
 }
 
 
-/* Second header row / # symbols */
-
+/* Second header row / # */
 .reportTable thead tr:last-child th,
 .reportTable thead tr:last-child th * {
     color: #111111 !important;
 }
 
 
-/* Review Type header */
-
-.reportTable thead tr:last-child th:first-child,
-.reportTable thead tr:last-child th:first-child * {
-    color: #111111 !important;
-}
-
-
-/* All normal body values */
-
+/* All body values */
 .reportTable tbody td,
-.reportTable tbody td * {
-    color: #111111 !important;
-}
-
-
-/* Numeric values */
-
-.reportTable .numeric,
-.reportTable .numeric * {
-    color: #111111 !important;
-}
-
-
-/* Report Table rendered values */
-
-.reportTable .rectElem,
-.reportTable .rectElem *,
-.reportTable .rectElem.animated,
-.reportTable .rectElem.animated * {
+.reportTable tbody td *,
+.reportTable tbody .numeric,
+.reportTable tbody .numeric *,
+.reportTable tbody .rectElem,
+.reportTable tbody .rectElem *,
+.reportTable tbody .rectElem.animated,
+.reportTable tbody .rectElem.animated * {
     color: #111111 !important;
 }
 
 
 /* Drill-down links */
-
 .reportTable tbody a,
 .reportTable tbody a:visited,
-.reportTable tbody a:active {
+.reportTable tbody a:active,
+.reportTable tbody a:hover {
     color: #111111 !important;
 }
 
 
 /* Review Type */
-
 .reportTable .rowCell,
 .reportTable .rowCell *,
 .reportTable .indexCell,
@@ -1044,8 +1022,7 @@ table.reportTable thead tr:first-child {
 }
 
 
-/* TOTAL row */
-
+/* Total row */
 .reportTable tbody tr:last-child td,
 .reportTable tbody tr:last-child td *,
 .reportTable .total,
@@ -1055,5 +1032,5 @@ table.reportTable thead tr:first-child {
 
 
 /* ============================================================
-   END BLACK COLUMN OVERRIDE
+   END — ALL TEXT BLACK
    ============================================================ */
