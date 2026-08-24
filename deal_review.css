@@ -426,3 +426,35 @@ th,
 td {
   box-shadow: none !important;
 }
+
+
+/* =========================================
+   DISABLE ALL TABLE CELL INTERACTION
+   ========================================= */
+
+tbody td,
+tbody td *,
+tbody tr,
+tbody tr * {
+  pointer-events: none !important;
+}
+
+/* Keep header available */
+thead,
+thead * {
+  pointer-events: auto !important;
+}
+
+/* Hide common Looker tooltip elements */
+.tooltip,
+.vis-tooltip,
+.looker-tooltip,
+.table-tooltip,
+.cell-tooltip,
+.hover-tooltip,
+[role="tooltip"],
+[aria-live="polite"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
