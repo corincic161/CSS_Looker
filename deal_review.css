@@ -1,4 +1,23 @@
+/* =========================================
+   HIDE TOP SUMMARY / SINGLE VALUE SECTION
+   ========================================= */
 
+/* Hide the summary area above the matrix */
+.single-value,
+.single_value,
+.single-value-container,
+.single_value_container,
+.vis-single-value,
+.vis-single_value {
+    display: none !important;
+}
+
+/* Remove extra space left by hidden summary */
+.single-value + *,
+.single_value + * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
 /* ================================
    STATUS MATRIX - LOOKER TABLE
    ================================ */
