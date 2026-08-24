@@ -1,148 +1,341 @@
 /* ============================================================
+   DEAL REVIEWS SUMMARY
    LOOKER REPORT TABLE
-   CLEAN VERSION
    ============================================================ */
+
+:root {
+    --complete: #666666;
+    --in-progress: #f39c12;
+    --not-requested: #555555;
+    --requested: #2f9145;
+    --total: #111111;
+
+    --text: #202124;
+    --border: #d9d9d9;
+}
 
 
 /* ============================================================
-   BASE TABLE
+   MAIN REPORT TABLE
    ============================================================ */
 
-table {
+.reportTable,
+table.reportTable {
     width: 100% !important;
-    border-collapse: collapse !important;
-    border-spacing: 0 !important;
-
-    background: #ffffff !important;
 
     font-family: Arial, Helvetica, sans-serif !important;
     font-size: 12px !important;
 
-    color: #222222 !important;
+    color: var(--text) !important;
+    background: #ffffff !important;
+
+    border: 0 !important;
+
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
 
     box-shadow: none !important;
 }
 
 
 /* ============================================================
-   HEADERS
+   IMPORTANT:
+   REMOVE REPORT TABLE CAPTION / DYNAMIC AREA
    ============================================================ */
 
-thead {
-    background: #ffffff !important;
+/*
+   This is taken from the structure revealed by your
+   working CSS example.
+
+   Report Table can use the table caption as the area above
+   the actual table headers.
+
+   Remove it completely.
+*/
+
+table.reportTable caption,
+.reportTable caption {
+
+    display: none !important;
+
+    visibility: hidden !important;
+
+    opacity: 0 !important;
+
+    width: 0 !important;
+    height: 0 !important;
+
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    max-width: 0 !important;
+    max-height: 0 !important;
+
+    line-height: 0 !important;
+    font-size: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+
+    overflow: hidden !important;
+
+    pointer-events: none !important;
 }
 
 
-thead tr {
-    background: #ffffff !important;
+/* ============================================================
+   REMOVE SPACE ABOVE HEADER
+   ============================================================ */
+
+table.reportTable,
+table.reportTable thead,
+table.reportTable thead tr:first-child {
+
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+
+    border-spacing: 0 !important;
 }
 
 
-thead th {
-    background: #ffffff !important;
+/* ============================================================
+   REMOVE EMPTY ROWS
+   ============================================================ */
+
+table.reportTable thead tr:empty,
+table.reportTable tbody tr:empty,
+table.reportTable tr:empty {
+
+    display: none !important;
+
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+
+    line-height: 0 !important;
+    font-size: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+}
+
+
+/* ============================================================
+   REMOVE EMPTY HEADER CELLS
+   ============================================================ */
+
+table.reportTable thead th:empty {
+
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+
+    line-height: 0 !important;
+    font-size: 0 !important;
+
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
+    border-top: 0 !important;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.reportTable th,
+.reportTable .headerCell,
+.headerCell {
+
+    font-family: Arial, Helvetica, sans-serif !important;
 
     font-size: 11px !important;
     font-weight: 600 !important;
+
+    line-height: 1.2 !important;
+
+    background: #ffffff !important;
 
     text-align: center !important;
     vertical-align: middle !important;
 
     padding: 10px 6px !important;
 
-    border: none !important;
-    border-bottom: 1px solid #d8d8d8 !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--border) !important;
 
     box-shadow: none !important;
 }
 
 
+/* All elements inside header */
+
+.reportTable th *,
+.reportTable .headerCell *,
+.headerCell * {
+
+    font-family: Arial, Helvetica, sans-serif !important;
+
+    font-size: 11px !important;
+    font-weight: 600 !important;
+
+    text-align: center !important;
+
+    background: transparent !important;
+}
+
+
 /* ============================================================
-   HEADER COLORS
+   TOP GROUP HEADER COLORS
    ============================================================ */
 
+/*
+   These correspond to the five visible group headings:
 
-/* Complete */
+   Complete
+   In Progress
+   Not Requested
+   Requested
+   Row Total
+*/
 
-thead th:nth-child(1),
-thead th:nth-child(1) * {
-    color: #666666 !important;
+
+.reportTable thead tr:first-child th:nth-child(1),
+.reportTable thead tr:first-child th:nth-child(1) * {
+    color: var(--complete) !important;
 }
 
 
-/* In Progress */
-
-thead th:nth-child(2),
-thead th:nth-child(2) * {
-    color: #f39c12 !important;
+.reportTable thead tr:first-child th:nth-child(2),
+.reportTable thead tr:first-child th:nth-child(2) * {
+    color: var(--in-progress) !important;
 }
 
 
-/* Not Requested */
+.reportTable thead tr:first-child th:nth-child(3),
+.reportTable thead tr:first-child th:nth-child(3) * {
+    color: var(--not-requested) !important;
+}
 
-thead th:nth-child(3),
-thead th:nth-child(3) * {
+
+.reportTable thead tr:first-child th:nth-child(4),
+.reportTable thead tr:first-child th:nth-child(4) * {
+    color: var(--requested) !important;
+}
+
+
+.reportTable thead tr:first-child th:nth-child(5),
+.reportTable thead tr:first-child th:nth-child(5) * {
+    color: var(--total) !important;
+}
+
+
+/* ============================================================
+   SECOND HEADER ROW
+   Review Type / #
+   ============================================================ */
+
+.reportTable thead tr:not(:first-child) th {
     color: #555555 !important;
 }
 
 
-/* Requested */
+/* Review Type */
 
-thead th:nth-child(4),
-thead th:nth-child(4) * {
-    color: #2f9145 !important;
+.reportTable thead tr:not(:first-child) th:first-child,
+.reportTable thead tr:not(:first-child) th:first-child * {
+
+    text-align: left !important;
+
+    color: #666666 !important;
 }
 
 
-/* Row Total */
+/* Complete # */
 
-thead th:nth-child(5),
-thead th:nth-child(5) * {
-    color: #222222 !important;
+.reportTable thead tr:not(:first-child) th:nth-child(2),
+.reportTable thead tr:not(:first-child) th:nth-child(2) * {
+    color: var(--complete) !important;
+}
+
+
+/* In Progress # */
+
+.reportTable thead tr:not(:first-child) th:nth-child(3),
+.reportTable thead tr:not(:first-child) th:nth-child(3) * {
+    color: var(--in-progress) !important;
+}
+
+
+/* Not Requested # */
+
+.reportTable thead tr:not(:first-child) th:nth-child(4),
+.reportTable thead tr:not(:first-child) th:nth-child(4) * {
+    color: var(--not-requested) !important;
+}
+
+
+/* Requested # */
+
+.reportTable thead tr:not(:first-child) th:nth-child(5),
+.reportTable thead tr:not(:first-child) th:nth-child(5) * {
+    color: var(--requested) !important;
+}
+
+
+/* Row Total # */
+
+.reportTable thead tr:not(:first-child) th:nth-child(6),
+.reportTable thead tr:not(:first-child) th:nth-child(6) * {
+    color: var(--total) !important;
 }
 
 
 /* ============================================================
-   BODY
+   BODY CELLS
    ============================================================ */
 
-tbody tr {
-    background: #ffffff !important;
-}
+.reportTable td {
 
-
-/* alternating row */
-
-tbody tr:nth-child(even):not(:last-child) {
-    background: #f5f5f5 !important;
-}
-
-
-tbody tr:nth-child(odd):not(:last-child) {
-    background: #ffffff !important;
-}
-
-
-/* ============================================================
-   CELLS
-   ============================================================ */
-
-tbody td {
-    background: transparent !important;
-    background-color: transparent !important;
-
-    padding: 7px 8px !important;
-
-    border: none !important;
-    border-bottom: 1px solid #dddddd !important;
-
-    vertical-align: middle !important;
+    font-family: Arial, Helvetica, sans-serif !important;
 
     font-size: 12px !important;
     font-weight: 500 !important;
 
-    box-shadow: none !important;
+    line-height: 1.25 !important;
 
-    pointer-events: auto !important;
+    background: transparent !important;
+
+    vertical-align: middle !important;
+
+    padding: 7px 8px !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid var(--border) !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ============================================================
+   ALTERNATING ROWS
+   ============================================================ */
+
+.reportTable tbody tr:nth-child(odd):not(:last-child) {
+    background: #ffffff !important;
+}
+
+
+.reportTable tbody tr:nth-child(even):not(:last-child) {
+    background: #f5f5f5 !important;
 }
 
 
@@ -150,55 +343,74 @@ tbody td {
    REVIEW TYPE
    ============================================================ */
 
-tbody td:first-child {
+.reportTable tbody td:first-child,
+.reportTable tbody td:first-child * {
+
     text-align: left !important;
 
     color: #111111 !important;
 
-    padding-left: 12px !important;
+    background: transparent !important;
 }
 
 
 /* ============================================================
-   CENTER ALL NUMBERS
+   CENTER NUMERIC CELLS
    ============================================================ */
 
-tbody td:not(:first-child) {
+.reportTable tbody td:not(:first-child) {
+
     text-align: center !important;
+    vertical-align: middle !important;
 }
 
 
 /*
-   Report Table creates wrappers inside cells.
-   Center those wrappers as well.
+   Report Table-specific numeric elements
 */
 
-tbody td:not(:first-child) > div {
-    width: 100% !important;
-
-    display: flex !important;
-
-    justify-content: center !important;
-    align-items: center !important;
+.reportTable .numeric,
+.reportTable .numeric *,
+.reportTable .rectElem,
+.reportTable .rectElem *,
+.reportTable .rectElem.animated,
+.reportTable .rectElem.animated * {
 
     text-align: center !important;
+    vertical-align: middle !important;
+}
+
+
+/* ============================================================
+   REMOVE RECT / BAR BACKGROUNDS COMPLETELY
+   ============================================================ */
+
+.reportTable .rectElem,
+.reportTable .rectElem.animated {
 
     background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
 
-    margin: 0 !important;
+    box-shadow: none !important;
+
+    border: 0 !important;
+
+    margin: 0 auto !important;
     padding: 0 !important;
 }
 
 
-tbody td:not(:first-child) > span {
-    display: inline-block !important;
+/* Nested rect content */
 
-    text-align: center !important;
+.reportTable .rectElem *,
+.reportTable .rectElem.animated * {
 
     background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
 
-    margin: 0 auto !important;
-    padding: 0 !important;
+    box-shadow: none !important;
 }
 
 
@@ -206,8 +418,9 @@ tbody td:not(:first-child) > span {
    DRILL LINKS
    ============================================================ */
 
-tbody td a {
-    display: inline-block !important;
+.reportTable tbody td a {
+
+    display: inline !important;
 
     width: auto !important;
     min-width: 0 !important;
@@ -215,13 +428,14 @@ tbody td a {
 
     height: auto !important;
 
-    margin: 0 auto !important;
+    margin: 0 !important;
     padding: 0 !important;
 
     background: transparent !important;
     background-color: transparent !important;
+    background-image: none !important;
 
-    border: none !important;
+    border: 0 !important;
     border-radius: 0 !important;
 
     box-shadow: none !important;
@@ -236,102 +450,189 @@ tbody td a {
 }
 
 
-/* nested Looker link elements */
-
-tbody td a span,
-tbody td a div {
-    background: transparent !important;
-    background-color: transparent !important;
-
-    border: none !important;
-    box-shadow: none !important;
-
-    padding: 0 !important;
-    margin: 0 !important;
-
-    pointer-events: none !important;
-}
-
-
 /* ============================================================
-   REMOVE ALL CELL VISUALIZATION / NUMBER BACKGROUNDS
+   EXACT BODY COLORS
    ============================================================ */
 
-tbody td div,
-tbody td span,
-tbody td a {
-    background-image: none !important;
+/*
+   IMPORTANT:
+
+   Body structure:
+
+   1 = Review Type
+   2 = Complete
+   3 = In Progress
+   4 = Not Requested
+   5 = Requested
+   6 = Row Total
+
+   These are explicitly assigned.
+   No inheritance guessing.
+*/
+
+
+/* COMPLETE */
+
+.reportTable tbody td:nth-child(2),
+.reportTable tbody td:nth-child(2) *,
+.reportTable tbody td:nth-child(2) a {
+
+    color: var(--complete) !important;
 }
 
 
-/* ============================================================
-   NUMBER COLORS
-   MATCH COLUMN HEADER COLORS
-   ============================================================ */
+/* IN PROGRESS */
 
+.reportTable tbody td:nth-child(3),
+.reportTable tbody td:nth-child(3) *,
+.reportTable tbody td:nth-child(3) a {
 
-/* Complete */
-
-tbody td:nth-child(2),
-tbody td:nth-child(2) *,
-tbody td:nth-child(2) a,
-tbody td:nth-child(2) a:visited {
-    color: #666666 !important;
+    color: var(--in-progress) !important;
 }
 
 
-/* In Progress */
+/* NOT REQUESTED */
 
-tbody td:nth-child(3),
-tbody td:nth-child(3) *,
-tbody td:nth-child(3) a,
-tbody td:nth-child(3) a:visited {
-    color: #f39c12 !important;
+.reportTable tbody td:nth-child(4),
+.reportTable tbody td:nth-child(4) *,
+.reportTable tbody td:nth-child(4) a {
+
+    color: var(--not-requested) !important;
 }
 
 
-/* Not Requested */
+/* REQUESTED */
 
-tbody td:nth-child(4),
-tbody td:nth-child(4) *,
-tbody td:nth-child(4) a,
-tbody td:nth-child(4) a:visited {
-    color: #555555 !important;
+.reportTable tbody td:nth-child(5),
+.reportTable tbody td:nth-child(5) *,
+.reportTable tbody td:nth-child(5) a {
+
+    color: var(--requested) !important;
 }
 
 
-/* Requested */
+/* ROW TOTAL */
 
-tbody td:nth-child(5),
-tbody td:nth-child(5) *,
-tbody td:nth-child(5) a,
-tbody td:nth-child(5) a:visited {
-    color: #2f9145 !important;
-}
+.reportTable tbody td:nth-child(6),
+.reportTable tbody td:nth-child(6) *,
+.reportTable tbody td:nth-child(6) a {
 
-
-/* Row Total */
-
-tbody td:nth-child(6),
-tbody td:nth-child(6) *,
-tbody td:nth-child(6) a,
-tbody td:nth-child(6) a:visited {
-    color: #222222 !important;
+    color: var(--total) !important;
 
     font-weight: 700 !important;
 }
 
 
 /* ============================================================
-   HOVER
-   NO BACKGROUND
+   CENTER INTERNAL WRAPPERS
    ============================================================ */
 
-tbody td a:hover {
-    background: transparent !important;
-    background-color: transparent !important;
+.reportTable tbody td:not(:first-child) > div {
 
-    text-decoration: underline !important;
+    width: 100% !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+
+    background: transparent !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* ============================================================
+   NUMERIC
+   ============================================================ */
+
+.reportTable .numeric {
+
+    width: 100% !important;
+
+    text-align: center !important;
+
+    font-variant-numeric: tabular-nums;
+}
+
+
+.reportTable .numeric * {
+    text-align: center !important;
+}
+
+
+/* ============================================================
+   REMOVE HOVER BACKGROUND
+   ============================================================ */
+
+/*
+   Your example stylesheet contains a .hover class.
+
+   We explicitly neutralize it.
+*/
+
+.reportTable .hover,
+.reportTable tr.hover,
+.reportTable td.hover,
+.reportTable th.hover {
+
+    background-color: transparent !important;
+}
+
+
+/* Keep alternating row color */
+
+.reportTable tbody tr:nth-child(even).hover {
+    background: #f5f5f5 !important;
+}
+
+
+.reportTable tbody tr:nth-child(odd).hover {
+    background: #ffffff !important;
+}
+
+
+/* ============================================================
+   REMOVE TOOLTIP
+   ============================================================ */
+
+/*
+   Your example CSS reveals the Report Table tooltip ID
+   is #tooltip — not merely .tooltip.
+
+   Hide that exact Report Table element.
+*/
+
+#tooltip {
+
+    display: none !important;
+
+    visibility: hidden !important;
+
+    opacity: 0 !important;
+
+    width: 0 !important;
+    height: 0 !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 0 !important;
+
+    pointer-events: none !important;
+}
+
+
+/* Tooltip table */
+
+.tooltipTable {
+
+    display: none !important;
+
+    visibility: hidden !important;
 }
 
 
@@ -339,16 +640,18 @@ tbody td a:hover {
    TOTAL ROW
    ============================================================ */
 
-tbody tr:last-child {
+.reportTable tbody tr:last-child {
+
     background: #ffffff !important;
 }
 
 
-tbody tr:last-child td {
+.reportTable tbody tr:last-child td {
+
     background: #ffffff !important;
 
-    border-top: 1px solid #c7c7c7 !important;
-    border-bottom: none !important;
+    border-top: 1px solid #bdbdbd !important;
+    border-bottom: 0 !important;
 
     padding-top: 11px !important;
 
@@ -356,7 +659,11 @@ tbody tr:last-child td {
 }
 
 
-tbody tr:last-child td:first-child {
+/* TOTAL */
+
+.reportTable tbody tr:last-child td:first-child,
+.reportTable tbody tr:last-child td:first-child * {
+
     color: #333333 !important;
 
     font-weight: 700 !important;
@@ -365,60 +672,74 @@ tbody tr:last-child td:first-child {
 }
 
 
+/* Complete total */
+
+.reportTable tbody tr:last-child td:nth-child(2),
+.reportTable tbody tr:last-child td:nth-child(2) * {
+
+    color: var(--complete) !important;
+}
+
+
+/* In Progress total */
+
+.reportTable tbody tr:last-child td:nth-child(3),
+.reportTable tbody tr:last-child td:nth-child(3) * {
+
+    color: var(--in-progress) !important;
+}
+
+
+/* Not Requested total */
+
+.reportTable tbody tr:last-child td:nth-child(4),
+.reportTable tbody tr:last-child td:nth-child(4) * {
+
+    color: var(--not-requested) !important;
+}
+
+
+/* Requested total */
+
+.reportTable tbody tr:last-child td:nth-child(5),
+.reportTable tbody tr:last-child td:nth-child(5) * {
+
+    color: var(--requested) !important;
+}
+
+
+/* Grand total */
+
+.reportTable tbody tr:last-child td:nth-child(6),
+.reportTable tbody tr:last-child td:nth-child(6) * {
+
+    color: var(--total) !important;
+
+    font-weight: 700 !important;
+}
+
+
 /* ============================================================
-   REPORT TABLE EXTRA HEADER / UNIT DISPLAY
+   DRILL HOVER
    ============================================================ */
 
-/*
-   Report Table supports units / abbreviated field information.
-   Remove empty/unit-style elements from the presentation layer.
-*/
+.reportTable tbody td a:hover {
 
-.unit {
-    display: none !important;
-}
+    background: transparent !important;
 
-
-.units {
-    display: none !important;
-}
-
-
-.unit-label {
-    display: none !important;
-}
-
-
-.field-unit {
-    display: none !important;
+    text-decoration: underline !important;
 }
 
 
 /* ============================================================
-   TOOLTIP / HOVER LABEL ELEMENTS
+   REMOVE GENERATED HEADER PSEUDO CONTENT
    ============================================================ */
 
-.tooltip,
-.tooltip-content,
-.tooltiptext,
-[role="tooltip"] {
-    display: none !important;
-    visibility: hidden !important;
+.reportTable th::before,
+.reportTable th::after,
+.reportTable .headerCell::before,
+.reportTable .headerCell::after {
 
-    opacity: 0 !important;
-
-    pointer-events: none !important;
-}
-
-
-/* ============================================================
-   REMOVE GENERATED HEADER CONTENT
-   ============================================================ */
-
-thead th::before,
-thead th::after,
-thead td::before,
-thead td::after {
     content: none !important;
 
     display: none !important;
@@ -426,42 +747,15 @@ thead td::after {
 
 
 /* ============================================================
-   HEADER LINKS
+   CLEANUP
    ============================================================ */
 
-thead a,
-thead a:hover,
-thead a:visited,
-thead a:active {
-    text-decoration: none !important;
-}
+.reportTable,
+.reportTable thead,
+.reportTable tbody,
+.reportTable tr,
+.reportTable th,
+.reportTable td {
 
-
-/* ============================================================
-   KEEP DRILL-DOWN WORKING
-   ============================================================ */
-
-tbody a {
-    pointer-events: auto !important;
-    cursor: pointer !important;
-}
-
-
-tbody td::before,
-tbody td::after {
-    pointer-events: none !important;
-}
-
-
-/* ============================================================
-   CLEAN CHROME
-   ============================================================ */
-
-table,
-thead,
-tbody,
-tr,
-th,
-td {
     box-shadow: none !important;
 }
