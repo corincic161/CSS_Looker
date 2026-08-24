@@ -788,17 +788,11 @@ table.reportTable td,
 
 
 /* ============================================================
-   STATUS COLORS
-   ADD THIS AT THE VERY BOTTOM
-   NO LAYOUT / WIDTH / DISPLAY CHANGES
+   FINAL UNIFORM COLOR PATCH
+   LAYOUT IS NOT TOUCHED
    ============================================================ */
 
-
-/* ============================================================
-   DEFAULT TEXT
-   ============================================================ */
-
-.reportTable {
+:root {
     --complete-color: #666666;
     --progress-color: #f39c12;
     --not-requested-color: #555555;
@@ -808,10 +802,137 @@ table.reportTable td,
 
 
 /* ============================================================
-   TOP HEADERS
+   RESET BODY VALUE COLOR FIRST
    ============================================================ */
 
-/* Complete */
+.reportTable tbody .numeric,
+.reportTable tbody .numeric *,
+.reportTable tbody .rectElem,
+.reportTable tbody .rectElem *,
+.reportTable tbody a {
+    color: #333333 !important;
+}
+
+
+/* ============================================================
+   COLOR EACH VALUE INSIDE EACH ROW
+   ============================================================ */
+
+/*
+   We use :nth-of-type relative to each row's value elements,
+   rather than counting elements globally.
+*/
+
+
+/* ---------- COMPLETE ---------- */
+
+.reportTable tbody tr .numeric:nth-of-type(1),
+.reportTable tbody tr .numeric:nth-of-type(1) *,
+.reportTable tbody tr .rectElem:nth-of-type(1),
+.reportTable tbody tr .rectElem:nth-of-type(1) *,
+.reportTable tbody tr .rectElem:nth-of-type(1) a {
+    color: var(--complete-color) !important;
+}
+
+
+/* ---------- IN PROGRESS ---------- */
+
+.reportTable tbody tr .numeric:nth-of-type(2),
+.reportTable tbody tr .numeric:nth-of-type(2) *,
+.reportTable tbody tr .rectElem:nth-of-type(2),
+.reportTable tbody tr .rectElem:nth-of-type(2) *,
+.reportTable tbody tr .rectElem:nth-of-type(2) a {
+    color: var(--progress-color) !important;
+}
+
+
+/* ---------- NOT REQUESTED ---------- */
+
+.reportTable tbody tr .numeric:nth-of-type(3),
+.reportTable tbody tr .numeric:nth-of-type(3) *,
+.reportTable tbody tr .rectElem:nth-of-type(3),
+.reportTable tbody tr .rectElem:nth-of-type(3) *,
+.reportTable tbody tr .rectElem:nth-of-type(3) a {
+    color: var(--not-requested-color) !important;
+}
+
+
+/* ---------- REQUESTED ---------- */
+
+.reportTable tbody tr .numeric:nth-of-type(4),
+.reportTable tbody tr .numeric:nth-of-type(4) *,
+.reportTable tbody tr .rectElem:nth-of-type(4),
+.reportTable tbody tr .rectElem:nth-of-type(4) *,
+.reportTable tbody tr .rectElem:nth-of-type(4) a {
+    color: var(--requested-color) !important;
+}
+
+
+/* ---------- ROW TOTAL ---------- */
+
+.reportTable tbody tr .numeric:nth-of-type(5),
+.reportTable tbody tr .numeric:nth-of-type(5) *,
+.reportTable tbody tr .rectElem:nth-of-type(5),
+.reportTable tbody tr .rectElem:nth-of-type(5) *,
+.reportTable tbody tr .rectElem:nth-of-type(5) a {
+    color: var(--total-color) !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* ============================================================
+   ALSO TARGET DIRECT CHILD VALUES
+   Report Table can render some rows slightly differently.
+   ============================================================ */
+
+
+/* COMPLETE */
+
+.reportTable tbody tr > .numeric:nth-child(1),
+.reportTable tbody tr > .rectElem:nth-child(1) {
+    color: var(--complete-color) !important;
+}
+
+
+/* IN PROGRESS */
+
+.reportTable tbody tr > .numeric:nth-child(2),
+.reportTable tbody tr > .rectElem:nth-child(2) {
+    color: var(--progress-color) !important;
+}
+
+
+/* NOT REQUESTED */
+
+.reportTable tbody tr > .numeric:nth-child(3),
+.reportTable tbody tr > .rectElem:nth-child(3) {
+    color: var(--not-requested-color) !important;
+}
+
+
+/* REQUESTED */
+
+.reportTable tbody tr > .numeric:nth-child(4),
+.reportTable tbody tr > .rectElem:nth-child(4) {
+    color: var(--requested-color) !important;
+}
+
+
+/* ROW TOTAL */
+
+.reportTable tbody tr > .numeric:nth-child(5),
+.reportTable tbody tr > .rectElem:nth-child(5) {
+    color: var(--total-color) !important;
+}
+
+
+/* ============================================================
+   HEADERS
+   ============================================================ */
+
+
+/* COMPLETE */
 
 .reportTable thead tr:first-child th:nth-of-type(1),
 .reportTable thead tr:first-child th:nth-of-type(1) * {
@@ -819,7 +940,7 @@ table.reportTable td,
 }
 
 
-/* In Progress */
+/* IN PROGRESS */
 
 .reportTable thead tr:first-child th:nth-of-type(2),
 .reportTable thead tr:first-child th:nth-of-type(2) * {
@@ -827,7 +948,7 @@ table.reportTable td,
 }
 
 
-/* Not Requested */
+/* NOT REQUESTED */
 
 .reportTable thead tr:first-child th:nth-of-type(3),
 .reportTable thead tr:first-child th:nth-of-type(3) * {
@@ -835,7 +956,7 @@ table.reportTable td,
 }
 
 
-/* Requested */
+/* REQUESTED */
 
 .reportTable thead tr:first-child th:nth-of-type(4),
 .reportTable thead tr:first-child th:nth-of-type(4) * {
@@ -843,7 +964,7 @@ table.reportTable td,
 }
 
 
-/* Row Total */
+/* ROW TOTAL */
 
 .reportTable thead tr:first-child th:nth-of-type(5),
 .reportTable thead tr:first-child th:nth-of-type(5) * {
@@ -852,18 +973,8 @@ table.reportTable td,
 
 
 /* ============================================================
-   SECOND HEADER ROW (#)
+   # HEADER ROW
    ============================================================ */
-
-/* Review Type */
-
-.reportTable thead tr:last-child th:nth-of-type(1),
-.reportTable thead tr:last-child th:nth-of-type(1) * {
-    color: #555555 !important;
-}
-
-
-/* Complete # */
 
 .reportTable thead tr:last-child th:nth-of-type(2),
 .reportTable thead tr:last-child th:nth-of-type(2) * {
@@ -871,15 +982,11 @@ table.reportTable td,
 }
 
 
-/* In Progress # */
-
 .reportTable thead tr:last-child th:nth-of-type(3),
 .reportTable thead tr:last-child th:nth-of-type(3) * {
     color: var(--progress-color) !important;
 }
 
-
-/* Not Requested # */
 
 .reportTable thead tr:last-child th:nth-of-type(4),
 .reportTable thead tr:last-child th:nth-of-type(4) * {
@@ -887,15 +994,11 @@ table.reportTable td,
 }
 
 
-/* Requested # */
-
 .reportTable thead tr:last-child th:nth-of-type(5),
 .reportTable thead tr:last-child th:nth-of-type(5) * {
     color: var(--requested-color) !important;
 }
 
-
-/* Row Total # */
 
 .reportTable thead tr:last-child th:nth-of-type(6),
 .reportTable thead tr:last-child th:nth-of-type(6) * {
@@ -904,344 +1007,26 @@ table.reportTable td,
 
 
 /* ============================================================
-   BODY VALUES
+   DRILL LINKS
    ============================================================ */
 
-/*
-   IMPORTANT:
-   These rules ONLY change color.
-   They do not touch:
-     display
-     width
-     position
-     margin
-     padding
-     flex
-*/
-
-
-/* COMPLETE */
-
-.reportTable tbody tr > td:nth-of-type(2),
-.reportTable tbody tr > td:nth-of-type(2) *,
-.reportTable tbody tr > td:nth-of-type(2) a {
-    color: var(--complete-color) !important;
-}
-
-
-/* IN PROGRESS */
-
-.reportTable tbody tr > td:nth-of-type(3),
-.reportTable tbody tr > td:nth-of-type(3) *,
-.reportTable tbody tr > td:nth-of-type(3) a {
-    color: var(--progress-color) !important;
-}
-
-
-/* NOT REQUESTED */
-
-.reportTable tbody tr > td:nth-of-type(4),
-.reportTable tbody tr > td:nth-of-type(4) *,
-.reportTable tbody tr > td:nth-of-type(4) a {
-    color: var(--not-requested-color) !important;
-}
-
-
-/* REQUESTED */
-
-.reportTable tbody tr > td:nth-of-type(5),
-.reportTable tbody tr > td:nth-of-type(5) *,
-.reportTable tbody tr > td:nth-of-type(5) a {
-    color: var(--requested-color) !important;
-}
-
-
-/* ROW TOTAL */
-
-.reportTable tbody tr > td:nth-of-type(6),
-.reportTable tbody tr > td:nth-of-type(6) *,
-.reportTable tbody tr > td:nth-of-type(6) a {
-    color: var(--total-color) !important;
-
-    font-weight: 700 !important;
+.reportTable tbody .numeric a,
+.reportTable tbody .rectElem a {
+    color: inherit !important;
 }
 
 
 /* ============================================================
    TOTAL ROW
+   Keep same color mapping
    ============================================================ */
 
-/* Complete total */
-
-.reportTable tbody tr:last-child > td:nth-of-type(2),
-.reportTable tbody tr:last-child > td:nth-of-type(2) * {
-    color: var(--complete-color) !important;
-}
-
-
-/* In Progress total */
-
-.reportTable tbody tr:last-child > td:nth-of-type(3),
-.reportTable tbody tr:last-child > td:nth-of-type(3) * {
-    color: var(--progress-color) !important;
-}
-
-
-/* Not Requested total */
-
-.reportTable tbody tr:last-child > td:nth-of-type(4),
-.reportTable tbody tr:last-child > td:nth-of-type(4) * {
-    color: var(--not-requested-color) !important;
-}
-
-
-/* Requested total */
-
-.reportTable tbody tr:last-child > td:nth-of-type(5),
-.reportTable tbody tr:last-child > td:nth-of-type(5) * {
-    color: var(--requested-color) !important;
-}
-
-
-/* Row Total */
-
-.reportTable tbody tr:last-child > td:nth-of-type(6),
-.reportTable tbody tr:last-child > td:nth-of-type(6) * {
-    color: var(--total-color) !important;
+.reportTable tbody tr:last-child .numeric,
+.reportTable tbody tr:last-child .rectElem {
+    font-weight: 700 !important;
 }
 
 
 /* ============================================================
-   DRILL LINKS MUST KEEP COLUMN COLOR
+   END COLOR PATCH
    ============================================================ */
-
-.reportTable tbody td a,
-.reportTable tbody td a:visited,
-.reportTable tbody td a:active {
-    color: inherit !important;
-}
-
-
-/* ============================================================
-   END STATUS COLORS
-   ============================================================ */
-table.reportTable,
-table.reportTable thead,
-table.reportTable thead tr:first-child {
-    margin-top: 0 !important;
-
-    padding-top: 0 !important;
-
-    border-spacing: 0 !important;
-}
-
-
-/* ============================================================
-   CLEANUP
-   ============================================================ */
-
-.reportTable,
-.reportTable thead,
-.reportTable tbody,
-.reportTable tr,
-.reportTable th,
-.reportTable td {
-    box-shadow: none !important;
-}
-
-
-/* ============================================================
-   END
-   ============================================================ */
-
-/* ============================================================
-   REPORT TABLE — COLOR PATCH ONLY
-
-   DO NOT change layout, width, display, margin, position, etc.
-   ============================================================ */
-
-
-/* ------------------------------------------------------------
-   COMPLETE — first measure
-   Gray
-   ------------------------------------------------------------ */
-
-.reportTable .rectElem:nth-child(1),
-.reportTable .rectElem:nth-child(1) *,
-.reportTable .rectElem:nth-child(1) a,
-
-.reportTable .rectElem.animated:nth-child(1),
-.reportTable .rectElem.animated:nth-child(1) *,
-.reportTable .rectElem.animated:nth-child(1) a {
-    color: #666666 !important;
-}
-
-
-/* ------------------------------------------------------------
-   IN PROGRESS — second measure
-   Orange
-   ------------------------------------------------------------ */
-
-.reportTable .rectElem:nth-child(2),
-.reportTable .rectElem:nth-child(2) *,
-.reportTable .rectElem:nth-child(2) a,
-
-.reportTable .rectElem.animated:nth-child(2),
-.reportTable .rectElem.animated:nth-child(2) *,
-.reportTable .rectElem.animated:nth-child(2) a {
-    color: #f39c12 !important;
-}
-
-
-/* ------------------------------------------------------------
-   NOT REQUESTED — third measure
-   Dark gray
-   ------------------------------------------------------------ */
-
-.reportTable .rectElem:nth-child(3),
-.reportTable .rectElem:nth-child(3) *,
-.reportTable .rectElem:nth-child(3) a,
-
-.reportTable .rectElem.animated:nth-child(3),
-.reportTable .rectElem.animated:nth-child(3) *,
-.reportTable .rectElem.animated:nth-child(3) a {
-    color: #555555 !important;
-}
-
-
-/* ------------------------------------------------------------
-   REQUESTED — fourth measure
-   Green
-   ------------------------------------------------------------ */
-
-.reportTable .rectElem:nth-child(4),
-.reportTable .rectElem:nth-child(4) *,
-.reportTable .rectElem:nth-child(4) a,
-
-.reportTable .rectElem.animated:nth-child(4),
-.reportTable .rectElem.animated:nth-child(4) *,
-.reportTable .rectElem.animated:nth-child(4) a {
-    color: #2f9145 !important;
-}
-
-
-/* ------------------------------------------------------------
-   ROW TOTAL — fifth measure
-   Black
-   ------------------------------------------------------------ */
-
-.reportTable .rectElem:nth-child(5),
-.reportTable .rectElem:nth-child(5) *,
-.reportTable .rectElem:nth-child(5) a,
-
-.reportTable .rectElem.animated:nth-child(5),
-.reportTable .rectElem.animated:nth-child(5) *,
-.reportTable .rectElem.animated:nth-child(5) a {
-    color: #111111 !important;
-}
-
-
-/* ============================================================
-   TRY NUMERIC ELEMENTS AS WELL
-   Some Report Table configurations use .numeric directly.
-   ============================================================ */
-
-
-/* 1 — Complete */
-
-.reportTable .numeric:nth-child(1),
-.reportTable .numeric:nth-child(1) *,
-.reportTable .numeric:nth-child(1) a {
-    color: #666666 !important;
-}
-
-
-/* 2 — In Progress */
-
-.reportTable .numeric:nth-child(2),
-.reportTable .numeric:nth-child(2) *,
-.reportTable .numeric:nth-child(2) a {
-    color: #f39c12 !important;
-}
-
-
-/* 3 — Not Requested */
-
-.reportTable .numeric:nth-child(3),
-.reportTable .numeric:nth-child(3) *,
-.reportTable .numeric:nth-child(3) a {
-    color: #555555 !important;
-}
-
-
-/* 4 — Requested */
-
-.reportTable .numeric:nth-child(4),
-.reportTable .numeric:nth-child(4) *,
-.reportTable .numeric:nth-child(4) a {
-    color: #2f9145 !important;
-}
-
-
-/* 5 — Row Total */
-
-.reportTable .numeric:nth-child(5),
-.reportTable .numeric:nth-child(5) *,
-.reportTable .numeric:nth-child(5) a {
-    color: #111111 !important;
-}
-
-
-/* ============================================================
-   LINKS
-   ============================================================ */
-
-.reportTable .rectElem a,
-.reportTable .numeric a {
-    color: inherit !important;
-}
-
-
-/* ============================================================
-   HEADER COLORS
-   Leave body layout completely untouched
-   ============================================================ */
-
-/* Complete */
-
-.reportTable thead tr:first-child th:nth-child(1),
-.reportTable thead tr:first-child th:nth-child(1) * {
-    color: #666666 !important;
-}
-
-
-/* In Progress */
-
-.reportTable thead tr:first-child th:nth-child(2),
-.reportTable thead tr:first-child th:nth-child(2) * {
-    color: #f39c12 !important;
-}
-
-
-/* Not Requested */
-
-.reportTable thead tr:first-child th:nth-child(3),
-.reportTable thead tr:first-child th:nth-child(3) * {
-    color: #555555 !important;
-}
-
-
-/* Requested */
-
-.reportTable thead tr:first-child th:nth-child(4),
-.reportTable thead tr:first-child th:nth-child(4) * {
-    color: #2f9145 !important;
-}
-
-
-/* Row Total */
-
-.reportTable thead tr:first-child th:nth-child(5),
-.reportTable thead tr:first-child th:nth-child(5) * {
-    color: #111111 !important;
-}
