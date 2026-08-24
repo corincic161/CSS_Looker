@@ -1,282 +1,378 @@
-/* =====================================================
-   TOP 20 OPPS — CLEAN STATUS MATRIX STYLE
-   ===================================================== */
+/* ============================================================
+   REPORT TABLE - CLEAN BLACK STYLE
+   ============================================================ */
 
-/* ---------- TABLE ---------- */
+:root {
+    --font: Arial, Helvetica, sans-serif;
+    --text: #000000;
+    --line: #dddddd;
+    --stripe: #f5f5f5;
+    --total-line: #bdbdbd;
+}
 
+
+/* ============================================================
+   MAIN TABLE
+   ============================================================ */
+
+.reportTable,
+table.reportTable,
 table {
-  width: 100% !important;
-  border-collapse: collapse !important;
-  background: #ffffff !important;
-  font-family: Arial, Helvetica, sans-serif !important;
-  color: #1f2937 !important;
+    font-family: var(--font) !important;
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+
+    color: #000000 !important;
+    background: #ffffff !important;
+
+    border: 0 !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-shadow: none !important;
 }
 
 
-/* ---------- HEADER ---------- */
+/* ============================================================
+   REMOVE CAPTION / EXTRA SPACE
+   ============================================================ */
 
-thead th {
-  background: #ffffff !important;
+table.reportTable caption,
+.reportTable caption,
+table caption {
+    display: none !important;
+    visibility: hidden !important;
 
-  border: none !important;
-  border-bottom: 1px solid #d9d9d9 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
 
-  padding: 10px 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
 
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  color: #6b7280 !important;
+    border: 0 !important;
 
-  text-align: left !important;
-  vertical-align: bottom !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
 
-  white-space: normal !important;
-  line-height: 1.25 !important;
+    overflow: hidden !important;
 }
 
 
-/* ---------- BODY ---------- */
+/* ============================================================
+   REMOVE TOOLTIP
+   ============================================================ */
 
-tbody td {
-  border: none !important;
-
-  padding: 8px 8px !important;
-
-  font-size: 12px !important;
-  font-weight: 400 !important;
-  color: #374151 !important;
-
-  background: #ffffff !important;
-
-  vertical-align: middle !important;
+#tooltip,
+.tooltipTable {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 
-/* Alternating rows */
+/* ============================================================
+   HEADER
+   ============================================================ */
 
-tbody tr:nth-child(even) td {
-  background: #f5f5f5 !important;
+table.reportTable th,
+.reportTable th,
+.headerCell {
+    font-family: var(--font) !important;
+
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+
+    color: #000000 !important;
+    background: #ffffff !important;
+
+    vertical-align: middle !important;
+
+    padding: 9px 8px !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
+
+    box-shadow: none !important;
 }
 
 
-/* ---------- REMOVE VERTICAL GRID ---------- */
+/* Force all header content black */
 
-thead th,
-tbody td {
-  border-left: none !important;
-  border-right: none !important;
+.reportTable th *,
+.headerCell * {
+    font-family: var(--font) !important;
+
+    font-size: 12px !important;
+    font-weight: 600 !important;
+
+    color: #000000 !important;
+    background: transparent !important;
 }
 
 
-/* ---------- ROW NUMBER ---------- */
+/* ============================================================
+   HEADER ALIGNMENT
+   ============================================================ */
 
-thead th:first-child,
-tbody td:first-child {
-  width: 32px !important;
-  min-width: 32px !important;
-  max-width: 32px !important;
+/* Default: left align descriptive columns */
 
-  text-align: center !important;
-  color: #9ca3af !important;
+.reportTable th,
+.reportTable th *,
+.headerCell,
+.headerCell * {
+    text-align: left !important;
 }
 
 
-/* ---------- ID ---------- */
+/* ============================================================
+   BODY CELLS
+   ============================================================ */
 
-thead th:nth-child(2),
-tbody td:nth-child(2) {
-  width: 70px !important;
+table.reportTable td,
+.reportTable td {
+    font-family: var(--font) !important;
+
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 1.25 !important;
+
+    color: #000000 !important;
+
+    vertical-align: middle !important;
+
+    padding: 7px 8px !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
+
+    background: transparent;
+
+    box-shadow: none !important;
 }
 
 
-/* ---------- REGION ---------- */
+/* ============================================================
+   ALTERNATING ROWS
+   ============================================================ */
 
-thead th:nth-child(3),
-tbody td:nth-child(3) {
-  width: 90px !important;
+.reportTable tbody tr:nth-child(odd):not(:last-child) {
+    background-color: #ffffff !important;
+}
+
+.reportTable tbody tr:nth-child(even):not(:last-child) {
+    background-color: var(--stripe) !important;
 }
 
 
-/* ---------- CLIENT ---------- */
+/* ============================================================
+   TEXT / INDEX CELLS
+   ============================================================ */
 
-thead th:nth-child(4),
-tbody td:nth-child(4) {
-  min-width: 130px !important;
+.reportTable .rowCell,
+.reportTable .rowCell *,
+.reportTable .indexCell,
+.reportTable .indexCell *,
+.reportTable .nonNumeric,
+.reportTable .nonNumeric * {
+    font-family: var(--font) !important;
+
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+
+    color: #000000 !important;
+
+    text-align: left !important;
+    vertical-align: middle !important;
 }
 
 
-/* ---------- NAME ---------- */
+/* ============================================================
+   NUMERIC CELLS
+   ============================================================ */
 
-thead th:nth-child(5),
-tbody td:nth-child(5) {
-  min-width: 150px !important;
+.reportTable .numeric,
+.reportTable .numeric * {
+    font-family: var(--font) !important;
+
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+
+    color: #000000 !important;
+
+    text-align: center !important;
+    vertical-align: middle !important;
+
+    font-variant-numeric: tabular-nums;
 }
 
 
-/* ---------- DEAL REVIEW STATUS ---------- */
+/* ============================================================
+   RECT / VALUE ELEMENTS
+   ============================================================ */
 
-thead th:nth-child(6),
-tbody td:nth-child(6) {
-  min-width: 105px !important;
+.reportTable .rectElem,
+.reportTable .rectElem.animated,
+.reportTable .rectElem *,
+.reportTable .rectElem.animated * {
+    font-family: var(--font) !important;
+
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+
+    color: #000000 !important;
+
+    text-align: center !important;
+    vertical-align: middle !important;
+
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border-color: transparent !important;
+
+    box-shadow: none !important;
+}
+
+.reportTable .rectElem.animated {
+    margin: 4px;
 }
 
 
-/* ---------- CDR TYPE ---------- */
+/* ============================================================
+   LINKS
+   ============================================================ */
 
-thead th:nth-child(7),
-tbody td:nth-child(7) {
-  min-width: 80px !important;
+.reportTable a,
+.reportTable a:link,
+.reportTable a:visited,
+.reportTable a:hover,
+.reportTable a:active {
+    font-family: var(--font) !important;
+
+    font-size: 12px !important;
+
+    color: #000000 !important;
+
+    background: transparent !important;
+
+    text-decoration: none !important;
+
+    border: 0 !important;
+
+    cursor: pointer !important;
+}
+
+.reportTable tbody a:hover {
+    text-decoration: underline !important;
 }
 
 
-/* ---------- REPORTING STAGE ---------- */
+/* ============================================================
+   REMOVE ALL SPECIAL VALUE COLORS
+   ============================================================ */
 
-thead th:nth-child(8),
-tbody td:nth-child(8) {
-  min-width: 130px !important;
+.reportTable .negative,
+.reportTable .estimate,
+.reportTable .focus,
+.reportTable .subtotal,
+.reportTable .total {
+    color: #000000 !important;
+}
+
+.reportTable .negative *,
+.reportTable .estimate *,
+.reportTable .focus *,
+.reportTable .subtotal *,
+.reportTable .total * {
+    color: #000000 !important;
 }
 
 
-/* ---------- START DATE ---------- */
+/* ============================================================
+   TOTAL
+   ============================================================ */
 
-thead th:nth-child(9),
-tbody td:nth-child(9) {
-  min-width: 90px !important;
+.reportTable .total {
+    font-weight: 700 !important;
+    border-top: 1px solid var(--total-line) !important;
+}
+
+.reportTable .total.transposed {
+    border-top: 0 !important;
+}
+
+.reportTable tbody tr:last-child {
+    background: #ffffff !important;
+}
+
+.reportTable tbody tr:last-child td {
+    font-weight: 700 !important;
+
+    padding-top: 10px !important;
+    padding-bottom: 8px !important;
+
+    border-top: 1px solid var(--total-line) !important;
+    border-bottom: 0 !important;
+
+    color: #000000 !important;
 }
 
 
-/* ---------- PROJECT MARGIN ---------- */
-
-thead th:nth-child(10),
-tbody td:nth-child(10) {
-  width: 95px !important;
-  text-align: center !important;
-}
-
-
-/* ---------- TOTAL TCV ---------- */
-
-thead th:nth-child(11),
-tbody td:nth-child(11) {
-  min-width: 95px !important;
-  text-align: right !important;
-  font-weight: 600 !important;
-}
-
-
-/* =====================================================
-   TEXT OVERFLOW
-   ===================================================== */
-
-/* Keep long values neat instead of expanding rows */
-
-tbody td:nth-child(4),
-tbody td:nth-child(5),
-tbody td:nth-child(8) {
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  max-width: 180px !important;
-}
-
-
-/* =====================================================
-   DEAL REVIEW STATUS
-   ===================================================== */
-
-/*
-   Keep status column slightly stronger.
-   If Looker's generated HTML gives us access to the
-   inner span, we can later turn individual statuses
-   into colored pills.
-*/
-
-tbody td:nth-child(6) {
-  font-weight: 500 !important;
-}
-
-
-/* =====================================================
-   CDR TYPE
-   ===================================================== */
-
-tbody td:nth-child(7) {
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  color: #4b5563 !important;
-}
-
-
-/* =====================================================
-   TOTAL TCV
-   ===================================================== */
-
-tbody td:nth-child(11) {
-  color: #111827 !important;
-}
-
-
-/* =====================================================
-   TOTAL ROW
-   ===================================================== */
-
-tbody tr:last-child td {
-  background: #ffffff !important;
-
-  border-top: 1px solid #cfcfcf !important;
-
-  padding-top: 11px !important;
-  padding-bottom: 11px !important;
-
-  font-weight: 700 !important;
-}
-
-
-/* Total value */
-
-tbody tr:last-child td:last-child {
-  color: #111827 !important;
-  font-size: 13px !important;
-}
-
-
-/* =====================================================
+/* ============================================================
    HOVER
-   ===================================================== */
+   ============================================================ */
 
-tbody tr:hover td {
-  background: #f9fafb !important;
+.reportTable .hover {
+    background-color: transparent !important;
+}
+
+.reportTable tbody tr:nth-child(even).hover {
+    background-color: var(--stripe) !important;
+}
+
+.reportTable tbody tr:nth-child(odd).hover {
+    background-color: #ffffff !important;
 }
 
 
-/* =====================================================
-   REMOVE DEFAULT LOOKER SHADOWS / HEAVY BORDERS
-   ===================================================== */
+/* ============================================================
+   REMOVE GENERATED HEADER CONTENT
+   ============================================================ */
 
-table,
-thead,
-tbody,
-tr,
-th,
-td {
-  box-shadow: none !important;
+.reportTable th::before,
+.reportTable th::after,
+.headerCell::before,
+.headerCell::after {
+    content: none !important;
 }
 
 
-/* =====================================================
-   SCROLLBAR
-   ===================================================== */
+/* ============================================================
+   FORCE EVERYTHING INSIDE TABLE BLACK
+   FINAL OVERRIDE
+   ============================================================ */
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.reportTable,
+.reportTable *,
+table.reportTable,
+table.reportTable * {
+    color: #000000 !important;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #c7c7c7;
-  border-radius: 8px;
-}
 
-::-webkit-scrollbar-track {
-  background: transparent;
+/* ============================================================
+   CLEANUP
+   ============================================================ */
+
+.reportTable,
+.reportTable thead,
+.reportTable tbody,
+.reportTable tr,
+.reportTable th,
+.reportTable td {
+    box-shadow: none !important;
 }
