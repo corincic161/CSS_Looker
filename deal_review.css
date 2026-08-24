@@ -1,462 +1,274 @@
-/* =========================================
-   STATUS MATRIX - LOOKER TABLE
-   COMPACT + NO HOVER + NO INFO BOX
-   ========================================= */
+/* =========================================================
+   LOOKER REPORT TABLE
+   Reference style based on supplied target screenshot
+   ========================================================= */
 
-
-/* =========================================
-   HIDE TOP SUMMARY / INFO ELEMENTS
-   ========================================= */
-
-.single-value,
-.single_value,
-.single-value-container,
-.single_value_container,
-.vis-single-value,
-.vis-single_value,
-.tooltip,
-.vis-tooltip,
-.looker-tooltip,
-.table-tooltip,
-.cell-tooltip,
-.hover-tooltip,
-[role="tooltip"],
-[aria-live="polite"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-
-/* =========================================
-   TABLE
-   ========================================= */
+/* ---------- Overall table ---------- */
 
 table {
-  width: 100% !important;
-  table-layout: fixed !important;
-  border-collapse: collapse !important;
-
-  background: #ffffff !important;
-
-  font-family: Arial, Helvetica, sans-serif !important;
-  color: #1f2937 !important;
-
-  box-shadow: none !important;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #202124;
 }
 
 
-/* =========================================
-   COLUMN WIDTHS
-   ========================================= */
-
-/* Review Type */
-thead th:nth-child(1),
-tbody td:nth-child(1) {
-  width: 26% !important;
-}
-
-/* Complete */
-thead th:nth-child(2),
-tbody td:nth-child(2) {
-  width: 15% !important;
-}
-
-/* In Progress */
-thead th:nth-child(3),
-tbody td:nth-child(3) {
-  width: 15% !important;
-}
-
-/* Not Requested */
-thead th:nth-child(4),
-tbody td:nth-child(4) {
-  width: 16% !important;
-}
-
-/* Requested */
-thead th:nth-child(5),
-tbody td:nth-child(5) {
-  width: 15% !important;
-}
-
-/* Total */
-thead th:nth-child(6),
-tbody td:nth-child(6) {
-  width: 13% !important;
-}
-
-
-/* =========================================
-   HEADER
-   ========================================= */
+/* ---------- Header ---------- */
 
 thead th {
-  background: #ffffff !important;
+    background: #ffffff !important;
+    color: #777777 !important;
 
-  border: none !important;
-  border-bottom: 1px solid #d9d9d9 !important;
+    font-size: 12px;
+    font-weight: 600;
 
-  padding: 10px 8px !important;
+    text-align: center;
+    vertical-align: middle;
 
-  font-size: 12px !important;
-  font-weight: 600 !important;
+    padding: 12px 14px !important;
 
-  color: #737373 !important;
-
-  text-align: center !important;
-  vertical-align: bottom !important;
-
-  box-shadow: none !important;
-  outline: none !important;
+    border: none !important;
+    border-bottom: 1px solid #dddddd !important;
 }
 
-
-/* First column */
+/* First/header dimension column */
 
 thead th:first-child {
-  text-align: left !important;
-
-  /* IMPORTANT:
-     removed min-width: 160px */
+    text-align: left !important;
 }
 
 
-/* Complete */
-
-thead th:nth-child(2) {
-  color: #2f8f46 !important;
-}
-
-
-/* In Progress */
-
-thead th:nth-child(3) {
-  color: #555555 !important;
-}
-
-
-/* Not Requested */
-
-thead th:nth-child(4) {
-  color: #737373 !important;
-}
-
-
-/* Requested */
-
-thead th:nth-child(5) {
-  color: #f28c00 !important;
-}
-
-
-/* =========================================
-   BODY
-   ========================================= */
+/* ---------- Body cells ---------- */
 
 tbody td {
-  border: none !important;
+    background: transparent;
+    padding: 10px 14px !important;
 
-  padding: 10px 8px !important;
+    border: none !important;
+    border-bottom: 1px solid #dddddd !important;
 
-  font-size: 13px !important;
-  font-weight: 400 !important;
+    text-align: center;
+    vertical-align: middle;
 
-  text-align: center !important;
-  vertical-align: middle !important;
-
-  background: #ffffff !important;
-
-  box-shadow: none !important;
-  outline: none !important;
-
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 
-/* =========================================
-   REVIEW TYPE
-   ========================================= */
+/* Review Type / first dimension */
 
 tbody td:first-child {
-  text-align: left !important;
-
-  font-size: 14px !important;
-  font-weight: 600 !important;
-
-  color: #111827 !important;
-
-  white-space: normal !important;
+    text-align: left !important;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111111;
 }
 
 
-/* =========================================
-   ALTERNATING ROWS
-   ========================================= */
+/* ---------- Alternating row ---------- */
 
-tbody tr:nth-child(odd) td {
-  background: #ffffff !important;
+tbody tr:nth-child(even):not(:last-child) {
+    background-color: #f5f5f5 !important;
 }
 
-tbody tr:nth-child(even) td {
-  background: #f5f5f5 !important;
-}
-
-
-/* =========================================
-   STATUS PILLS
-   ========================================= */
-
-tbody td:nth-child(2) span,
-tbody td:nth-child(3) span,
-tbody td:nth-child(4) span,
-tbody td:nth-child(5) span {
-  display: inline-block !important;
-
-  min-width: 38px !important;
-
-  padding: 7px 9px !important;
-
-  border-radius: 7px !important;
-
-  font-weight: 700 !important;
-  text-align: center !important;
+tbody tr:nth-child(odd) {
+    background-color: #ffffff !important;
 }
 
 
-/* Complete */
+/* =========================================================
+   COLUMN STYLING
 
-tbody td:nth-child(2) span {
-  background: #e7f3e9 !important;
-  color: #2f8f46 !important;
+   Expected order:
+
+   1 = Review Type
+   2 = Not Requested
+   3 = Requested
+   4 = In Progress
+   5 = Completed
+   6 = Total
+   ========================================================= */
+
+
+/* ---------- Not Requested ---------- */
+
+thead th:nth-child(2) {
+    color: #777777 !important;
+}
+
+tbody td:nth-child(2) {
+    color: #777777 !important;
+    font-weight: 600;
 }
 
 
-/* In Progress */
+/* Badge */
 
-tbody td:nth-child(3) span {
-  background: #eeeeee !important;
-  color: #555555 !important;
+tbody tr:not(:last-child) td:nth-child(2) {
+    background: #f0f0f0 !important;
+    border-radius: 7px !important;
+
+    /* prevents background from filling entire cell */
+    background-clip: content-box !important;
+
+    padding: 8px 12px !important;
 }
 
 
-/* Not Requested */
+/* ---------- Requested ---------- */
 
-tbody td:nth-child(4) span {
-  background: #f1f1f1 !important;
-  color: #777777 !important;
+thead th:nth-child(3) {
+    color: #f39c12 !important;
+}
+
+tbody td:nth-child(3) {
+    color: #f39c12 !important;
+    font-weight: 700;
+}
+
+tbody tr:not(:last-child) td:nth-child(3) {
+    background: #fff0dd !important;
+    border-radius: 7px !important;
+    background-clip: content-box !important;
+
+    padding: 8px 12px !important;
 }
 
 
-/* Requested */
+/* ---------- In Progress ---------- */
 
-tbody td:nth-child(5) span {
-  background: #fff0dc !important;
-  color: #f28c00 !important;
+thead th:nth-child(4) {
+    color: #555555 !important;
+}
+
+tbody td:nth-child(4) {
+    color: #555555 !important;
+    font-weight: 700;
+}
+
+tbody tr:not(:last-child) td:nth-child(4) {
+    background: #e9e9e9 !important;
+    border-radius: 7px !important;
+    background-clip: content-box !important;
+
+    padding: 8px 12px !important;
 }
 
 
-/* =========================================
-   TOTAL COLUMN
-   ========================================= */
+/* ---------- Completed ---------- */
 
-tbody td:last-child {
-  font-weight: 700 !important;
-  color: #1f2937 !important;
+thead th:nth-child(5) {
+    color: #30964b !important;
+}
+
+tbody td:nth-child(5) {
+    color: #30964b !important;
+    font-weight: 700;
+}
+
+tbody tr:not(:last-child) td:nth-child(5) {
+    background: #e4f1e8 !important;
+    border-radius: 7px !important;
+    background-clip: content-box !important;
+
+    padding: 8px 12px !important;
 }
 
 
-/* =========================================
-   GRAND TOTAL
-   ========================================= */
+/* ---------- Total column ---------- */
+
+thead th:nth-child(6) {
+    color: #333333 !important;
+}
+
+tbody td:nth-child(6) {
+    color: #222222 !important;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TOTAL ROW
+   ========================================================= */
+
+tbody tr:last-child {
+    background: #ffffff !important;
+}
 
 tbody tr:last-child td {
-  background: #ffffff !important;
+    background: #ffffff !important;
 
-  border-top: 1px solid #cfcfcf !important;
+    border-top: 1px solid #bdbdbd !important;
+    border-bottom: none !important;
 
-  padding-top: 14px !important;
-  padding-bottom: 12px !important;
+    padding-top: 14px !important;
 
-  font-weight: 700 !important;
+    font-weight: 700;
 }
 
 
-/* Remove pills from totals */
+/* TOTAL label */
 
-tbody tr:last-child td span {
-  background: transparent !important;
-
-  padding: 0 !important;
-
-  min-width: auto !important;
-
-  border-radius: 0 !important;
+tbody tr:last-child td:first-child {
+    color: #333333 !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 
-tbody tr:last-child td:nth-child(2) span {
-  color: #2f8f46 !important;
-}
+/* Total - Not Requested */
 
-tbody tr:last-child td:nth-child(3) span {
-  color: #555555 !important;
-}
-
-tbody tr:last-child td:nth-child(4) span {
-  color: #777777 !important;
-}
-
-tbody tr:last-child td:nth-child(5) span {
-  color: #f28c00 !important;
+tbody tr:last-child td:nth-child(2) {
+    color: #777777 !important;
 }
 
 
-/* =========================================
-   COMPLETELY REMOVE ROW HOVER
-   ========================================= */
+/* Total - Requested */
 
-tbody tr:nth-child(odd):hover td {
-  background: #ffffff !important;
-}
-
-tbody tr:nth-child(even):hover td {
-  background: #f5f5f5 !important;
-}
-
-tbody tr:last-child:hover td {
-  background: #ffffff !important;
+tbody tr:last-child td:nth-child(3) {
+    color: #f39c12 !important;
 }
 
 
-/* =========================================
-   DISABLE BODY INTERACTION
-   ========================================= */
+/* Total - In Progress */
 
-tbody,
-tbody tr,
-tbody td,
-tbody td *,
-tbody tr * {
-  pointer-events: none !important;
-  cursor: default !important;
+tbody tr:last-child td:nth-child(4) {
+    color: #444444 !important;
 }
 
 
-/* =========================================
-   REMOVE ALL HOVER VISUAL EFFECTS
-   ========================================= */
+/* Total - Completed */
+
+tbody tr:last-child td:nth-child(5) {
+    color: #30964b !important;
+}
+
+
+/* Grand Total */
+
+tbody tr:last-child td:nth-child(6) {
+    color: #111111 !important;
+}
+
+
+/* ---------- Remove unnecessary table chrome ---------- */
 
 table,
 thead,
 tbody,
 tr,
 th,
-td,
-th:hover,
-td:hover,
-tr:hover {
-  box-shadow: none !important;
-  outline: none !important;
+td {
+    box-shadow: none !important;
 }
 
 
-/* =========================================
-   KEEP PILLS SAME ON HOVER
-   ========================================= */
+/* ---------- Hover ---------- */
 
-tbody tr:hover td:nth-child(2) span {
-  background: #e7f3e9 !important;
-  color: #2f8f46 !important;
-}
-
-tbody tr:hover td:nth-child(3) span {
-  background: #eeeeee !important;
-  color: #555555 !important;
-}
-
-tbody tr:hover td:nth-child(4) span {
-  background: #f1f1f1 !important;
-  color: #777777 !important;
-}
-
-tbody tr:hover td:nth-child(5) span {
-  background: #fff0dc !important;
-  color: #f28c00 !important;
-}
-
-
-/* Total row should never get pills */
-
-tbody tr:last-child:hover td span {
-  background: transparent !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-}
-
-
-
-/* =========================================
-   REMOVE LOOKER HOVERED-COLUMN LABEL
-   TOP-LEFT "#" / FIELD NAME
-   ========================================= */
-
-/* The top-left hover/field-name area */
-thead tr:first-child:first-child,
-thead tr:first-child > th:first-child {
-  font-size: 0 !important;
-  color: transparent !important;
-
-  pointer-events: none !important;
-
-  border: none !important;
-  background: transparent !important;
-
-  box-shadow: none !important;
-}
-
-
-/* Prevent generated text */
-thead tr:first-child > th:first-child::before,
-thead tr:first-child > th:first-child::after {
-  content: "" !important;
-  display: none !important;
-}
-
-
-/* Disable header hover interaction */
-thead th {
-  pointer-events: none !important;
-  cursor: default !important;
-}
-
-
-/* Disable ALL table interaction */
-table,
-thead,
-tbody,
-tr,
-th,
-td,
-th *,
-td * {
-  pointer-events: none !important;
-}
-
-
-/* Kill tooltip / hover overlays */
-.tooltip,
-.vis-tooltip,
-.looker-tooltip,
-.table-tooltip,
-.cell-tooltip,
-.hover-tooltip,
-[role="tooltip"],
-[aria-live="polite"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+tbody tr:hover {
+    background-color: inherit !important;
 }
