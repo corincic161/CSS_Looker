@@ -1,115 +1,324 @@
 /* ============================================================
-   FINAL RESET
-   Remove the previous nth-child color/width logic
+   LOOKER REPORT TABLE — CLEAN FINAL CSS
+   REPLACE ALL PREVIOUS CUSTOM CSS WITH THIS
    ============================================================ */
+
+:root {
+    --complete: #666666;
+    --progress: #f39c12;
+    --not-requested: #555555;
+    --requested: #2f9145;
+    --total: #111111;
+
+    --text: #202124;
+    --line: #dddddd;
+    --stripe: #f5f5f5;
+}
 
 
 /* ============================================================
-   1. TABLE SHOULD SIZE TO CONTENT
+   1. MAIN TABLE
    ============================================================ */
 
-table.reportTable {
-    width: auto !important;
-    max-width: 100% !important;
+table.reportTable,
+.reportTable {
+    width: 100% !important;
 
-    table-layout: auto !important;
+    table-layout: fixed !important;
 
     border-collapse: collapse !important;
     border-spacing: 0 !important;
 
     margin: 0 !important;
     padding: 0 !important;
+
+    background: #ffffff !important;
+    border: 0 !important;
+
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 12px !important;
+
+    color: var(--text) !important;
+
+    box-shadow: none !important;
 }
 
 
 /* ============================================================
-   2. REMOVE ALL PREVIOUS FORCED COLUMN WIDTHS
+   2. COLUMN WIDTHS
+
+   Review Type      25%
+   Complete         15%
+   In Progress      15%
+   Not Requested    15%
+   Requested        15%
+   Row Total        15%
+
+   This removes the giant gap after Review Type.
+   ============================================================ */
+
+
+/* BODY */
+
+table.reportTable tbody td:nth-of-type(1) {
+    width: 25% !important;
+}
+
+table.reportTable tbody td:nth-of-type(2),
+table.reportTable tbody td:nth-of-type(3),
+table.reportTable tbody td:nth-of-type(4),
+table.reportTable tbody td:nth-of-type(5),
+table.reportTable tbody td:nth-of-type(6) {
+    width: 15% !important;
+}
+
+
+/* SECOND HEADER ROW */
+
+table.reportTable thead tr:last-child th:nth-of-type(1) {
+    width: 25% !important;
+}
+
+table.reportTable thead tr:last-child th:nth-of-type(2),
+table.reportTable thead tr:last-child th:nth-of-type(3),
+table.reportTable thead tr:last-child th:nth-of-type(4),
+table.reportTable thead tr:last-child th:nth-of-type(5),
+table.reportTable thead tr:last-child th:nth-of-type(6) {
+    width: 15% !important;
+}
+
+
+/* ============================================================
+   3. HEADERS
    ============================================================ */
 
 table.reportTable th,
-table.reportTable td {
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-}
+.reportTable .headerCell {
+    font-family: Arial, Helvetica, sans-serif !important;
 
+    font-size: 11px !important;
+    font-weight: 600 !important;
 
-/* ============================================================
-   3. REVIEW TYPE COLUMN
-   Do NOT let this consume the entire available width
-   ============================================================ */
+    line-height: 1.2 !important;
 
-table.reportTable tbody td:first-child,
-table.reportTable thead tr:last-child th:first-child {
-    width: 140px !important;
-    min-width: 140px !important;
-    max-width: 140px !important;
+    background: #ffffff !important;
 
-    box-sizing: border-box !important;
+    padding: 9px 6px !important;
 
-    padding-left: 8px !important;
-    padding-right: 12px !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
 
-    text-align: left !important;
-
-    white-space: nowrap !important;
-}
-
-
-/* ============================================================
-   4. NUMERIC COLUMNS
-   Give all measures compact equal widths
-   ============================================================ */
-
-table.reportTable tbody td:not(:first-child) {
-    width: 95px !important;
-    min-width: 95px !important;
-    max-width: 95px !important;
-
-    box-sizing: border-box !important;
-
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-
-    text-align: center !important;
-}
-
-
-/* ============================================================
-   5. NUMERIC CONTENT
-   ============================================================ */
-
-.reportTable .numeric,
-.reportTable .numeric *,
-.reportTable .rectElem,
-.reportTable .rectElem *,
-.reportTable .rectElem.animated,
-.reportTable .rectElem.animated * {
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-
-    text-align: center !important;
     vertical-align: middle !important;
 
-    margin-left: auto !important;
-    margin-right: auto !important;
+    box-shadow: none !important;
+}
 
-    padding: 0 !important;
+
+/* Everything inside header */
+
+table.reportTable th *,
+.reportTable .headerCell * {
+    font-family: Arial, Helvetica, sans-serif !important;
+
+    font-size: 11px !important;
+    font-weight: 600 !important;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
 }
 
 
 /* ============================================================
-   6. REMOVE NUMBER BACKGROUNDS
+   4. TOP MEASURE HEADERS
    ============================================================ */
 
-.reportTable .numeric,
-.reportTable .numeric *,
-.reportTable .rectElem,
-.reportTable .rectElem *,
-.reportTable .rectElem.animated,
-.reportTable .rectElem.animated *,
-.reportTable tbody td a {
+table.reportTable thead tr:first-child th {
+    text-align: center !important;
+}
+
+
+/* COMPLETE */
+
+table.reportTable thead tr:first-child th:nth-of-type(1),
+table.reportTable thead tr:first-child th:nth-of-type(1) * {
+    color: var(--complete) !important;
+}
+
+
+/* IN PROGRESS */
+
+table.reportTable thead tr:first-child th:nth-of-type(2),
+table.reportTable thead tr:first-child th:nth-of-type(2) * {
+    color: var(--progress) !important;
+}
+
+
+/* NOT REQUESTED */
+
+table.reportTable thead tr:first-child th:nth-of-type(3),
+table.reportTable thead tr:first-child th:nth-of-type(3) * {
+    color: var(--not-requested) !important;
+}
+
+
+/* REQUESTED */
+
+table.reportTable thead tr:first-child th:nth-of-type(4),
+table.reportTable thead tr:first-child th:nth-of-type(4) * {
+    color: var(--requested) !important;
+}
+
+
+/* ROW TOTAL */
+
+table.reportTable thead tr:first-child th:nth-of-type(5),
+table.reportTable thead tr:first-child th:nth-of-type(5) * {
+    color: var(--total) !important;
+}
+
+
+/* ============================================================
+   5. SECOND HEADER ROW
+   ============================================================ */
+
+table.reportTable thead tr:last-child th {
+    text-align: center !important;
+}
+
+
+/* Review Type */
+
+table.reportTable thead tr:last-child th:nth-of-type(1),
+table.reportTable thead tr:last-child th:nth-of-type(1) * {
+    text-align: left !important;
+
+    color: #666666 !important;
+}
+
+
+/* Complete # */
+
+table.reportTable thead tr:last-child th:nth-of-type(2),
+table.reportTable thead tr:last-child th:nth-of-type(2) * {
+    color: var(--complete) !important;
+}
+
+
+/* In Progress # */
+
+table.reportTable thead tr:last-child th:nth-of-type(3),
+table.reportTable thead tr:last-child th:nth-of-type(3) * {
+    color: var(--progress) !important;
+}
+
+
+/* Not Requested # */
+
+table.reportTable thead tr:last-child th:nth-of-type(4),
+table.reportTable thead tr:last-child th:nth-of-type(4) * {
+    color: var(--not-requested) !important;
+}
+
+
+/* Requested # */
+
+table.reportTable thead tr:last-child th:nth-of-type(5),
+table.reportTable thead tr:last-child th:nth-of-type(5) * {
+    color: var(--requested) !important;
+}
+
+
+/* Row Total # */
+
+table.reportTable thead tr:last-child th:nth-of-type(6),
+table.reportTable thead tr:last-child th:nth-of-type(6) * {
+    color: var(--total) !important;
+}
+
+
+/* ============================================================
+   6. BODY
+   ============================================================ */
+
+table.reportTable tbody td {
+    font-family: Arial, Helvetica, sans-serif !important;
+
+    font-size: 12px !important;
+    font-weight: 500 !important;
+
+    line-height: 1.25 !important;
+
+    vertical-align: middle !important;
+
+    padding: 7px 6px !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
+
+    background: transparent !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ============================================================
+   7. ROW STRIPING
+   ============================================================ */
+
+table.reportTable tbody tr:nth-child(odd):not(:last-child) {
+    background: #ffffff !important;
+}
+
+table.reportTable tbody tr:nth-child(even):not(:last-child) {
+    background: var(--stripe) !important;
+}
+
+
+/* ============================================================
+   8. REVIEW TYPE
+   ============================================================ */
+
+table.reportTable tbody td:nth-of-type(1),
+table.reportTable tbody td:nth-of-type(1) * {
+    text-align: left !important;
+
+    color: #111111 !important;
+}
+
+
+/* ============================================================
+   9. CENTER ALL NUMBERS
+   ============================================================ */
+
+table.reportTable tbody td:nth-of-type(n+2) {
+    text-align: center !important;
+}
+
+
+table.reportTable tbody td:nth-of-type(n+2) *,
+table.reportTable .numeric,
+table.reportTable .numeric *,
+table.reportTable .rectElem,
+table.reportTable .rectElem *,
+table.reportTable .rectElem.animated,
+table.reportTable .rectElem.animated * {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+
+/* ============================================================
+   10. REMOVE ALL NUMBER BACKGROUNDS
+   ============================================================ */
+
+table.reportTable .numeric,
+table.reportTable .numeric *,
+table.reportTable .rectElem,
+table.reportTable .rectElem *,
+table.reportTable .rectElem.animated,
+table.reportTable .rectElem.animated *,
+table.reportTable tbody a {
     background: transparent !important;
     background-color: transparent !important;
     background-image: none !important;
@@ -122,61 +331,101 @@ table.reportTable tbody td:not(:first-child) {
 
 
 /* ============================================================
-   7. CRITICAL COLOR RESET
-
-   DO NOT assign:
-       td:nth-child(2)
-       td:nth-child(3)
-       etc.
-
-   Report Table's generated structure is causing those
-   positional selectors to mismatch the visible measures.
+   11. BODY COLORS
    ============================================================ */
 
-.reportTable tbody td,
-.reportTable tbody td *,
-.reportTable .numeric,
-.reportTable .numeric *,
-.reportTable .rectElem,
-.reportTable .rectElem * {
-    color: inherit;
+
+/* COMPLETE */
+
+table.reportTable tbody tr td:nth-of-type(2),
+table.reportTable tbody tr td:nth-of-type(2) *,
+table.reportTable tbody tr td:nth-of-type(2) a {
+    color: var(--complete) !important;
+}
+
+
+/* IN PROGRESS */
+
+table.reportTable tbody tr td:nth-of-type(3),
+table.reportTable tbody tr td:nth-of-type(3) *,
+table.reportTable tbody tr td:nth-of-type(3) a {
+    color: var(--progress) !important;
+}
+
+
+/* NOT REQUESTED */
+
+table.reportTable tbody tr td:nth-of-type(4),
+table.reportTable tbody tr td:nth-of-type(4) *,
+table.reportTable tbody tr td:nth-of-type(4) a {
+    color: var(--not-requested) !important;
+}
+
+
+/* REQUESTED */
+
+table.reportTable tbody tr td:nth-of-type(5),
+table.reportTable tbody tr td:nth-of-type(5) *,
+table.reportTable tbody tr td:nth-of-type(5) a {
+    color: var(--requested) !important;
+}
+
+
+/* ROW TOTAL */
+
+table.reportTable tbody tr td:nth-of-type(6),
+table.reportTable tbody tr td:nth-of-type(6) *,
+table.reportTable tbody tr td:nth-of-type(6) a {
+    color: var(--total) !important;
+
+    font-weight: 700 !important;
 }
 
 
 /* ============================================================
-   8. LET LINKS USE THEIR CELL / VALUE COLOR
+   12. DRILL LINKS
    ============================================================ */
 
-.reportTable tbody td a,
-.reportTable tbody td a:visited,
-.reportTable tbody td a:active {
+table.reportTable tbody td a {
+    display: inline-block !important;
+
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+
+    height: auto !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
     color: inherit !important;
 
     background: transparent !important;
 
+    border: 0 !important;
+
+    text-align: center !important;
     text-decoration: none !important;
 
     cursor: pointer !important;
+
     pointer-events: auto !important;
 }
 
 
-/* ============================================================
-   9. DON'T OVERRIDE REPORT TABLE'S VALUE COLOR
-   ============================================================ */
+table.reportTable tbody td a:hover {
+    background: transparent !important;
 
-.reportTable .numeric a,
-.reportTable .rectElem a,
-.reportTable .rectElem.animated a {
-    color: inherit !important;
+    text-decoration: underline !important;
 }
 
 
 /* ============================================================
-   10. CENTER THE ACTUAL CLICKABLE VALUE
+   13. REPORT TABLE RECT ELEMENT
    ============================================================ */
 
-.reportTable tbody td:not(:first-child) a {
+table.reportTable .rectElem,
+table.reportTable .rectElem.animated {
     display: inline-block !important;
 
     width: auto !important;
@@ -186,117 +435,101 @@ table.reportTable tbody td:not(:first-child) {
     margin: 0 auto !important;
     padding: 0 !important;
 
-    text-align: center !important;
+    background: transparent !important;
 }
 
 
 /* ============================================================
-   11. REMOVE THE OLD RECT WIDTH
+   14. NUMERIC
    ============================================================ */
 
-.reportTable .rectElem,
-.reportTable .rectElem.animated {
-    display: inline-block !important;
-
+table.reportTable .numeric {
     width: auto !important;
 
-    margin: 0 auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 
     padding: 0 !important;
+
+    font-variant-numeric: tabular-nums;
 }
 
 
 /* ============================================================
-   12. FIRST COLUMN INTERNAL ELEMENTS
+   15. TOTAL ROW
    ============================================================ */
 
-.reportTable tbody td:first-child *,
-.reportTable .rowCell,
-.reportTable .rowCell *,
-.reportTable .indexCell,
-.reportTable .indexCell * {
-    width: auto !important;
-
-    text-align: left !important;
+table.reportTable tbody tr:last-child {
+    background: #ffffff !important;
 }
 
 
-/* ============================================================
-   13. HEADER COMPACTNESS
-   ============================================================ */
+table.reportTable tbody tr:last-child td {
+    border-top: 1px solid #bdbdbd !important;
+    border-bottom: 0 !important;
 
-.reportTable th,
-.reportTable .headerCell {
-    width: auto !important;
+    padding-top: 10px !important;
 
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-
-    text-align: center !important;
-}
-
-
-/* ============================================================
-   14. REMOVE LARGE INDEX WIDTH
-   ============================================================ */
-
-.reportTable .indexCell {
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: 140px !important;
-}
-
-
-/* ============================================================
-   15. ROW CELL
-   ============================================================ */
-
-.reportTable .rowCell {
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: 140px !important;
-}
-
-
-/* ============================================================
-   16. TOTAL
-   ============================================================ */
-
-.reportTable .total {
     font-weight: 700 !important;
 }
 
 
-/* ============================================================
-   17. HOVER
-   ============================================================ */
+table.reportTable tbody tr:last-child td:first-child,
+table.reportTable tbody tr:last-child td:first-child * {
+    color: #333333 !important;
 
-.reportTable tbody td a:hover {
-    background: transparent !important;
+    font-weight: 700 !important;
 
-    text-decoration: underline !important;
+    text-transform: uppercase !important;
 }
 
 
 /* ============================================================
-   18. NO HOVER BACKGROUND
+   16. TOTAL ROW COLORS
    ============================================================ */
 
-.reportTable .hover {
-    background-color: transparent !important;
+table.reportTable tbody tr:last-child td:nth-of-type(2),
+table.reportTable tbody tr:last-child td:nth-of-type(2) * {
+    color: var(--complete) !important;
+}
+
+
+table.reportTable tbody tr:last-child td:nth-of-type(3),
+table.reportTable tbody tr:last-child td:nth-of-type(3) * {
+    color: var(--progress) !important;
+}
+
+
+table.reportTable tbody tr:last-child td:nth-of-type(4),
+table.reportTable tbody tr:last-child td:nth-of-type(4) * {
+    color: var(--not-requested) !important;
+}
+
+
+table.reportTable tbody tr:last-child td:nth-of-type(5),
+table.reportTable tbody tr:last-child td:nth-of-type(5) * {
+    color: var(--requested) !important;
+}
+
+
+table.reportTable tbody tr:last-child td:nth-of-type(6),
+table.reportTable tbody tr:last-child td:nth-of-type(6) * {
+    color: var(--total) !important;
 }
 
 
 /* ============================================================
-   19. REMOVE CAPTION
+   17. REMOVE CAPTION
+   This exists in the reference CSS you supplied.
    ============================================================ */
 
-table.reportTable caption {
+table.reportTable caption,
+.reportTable caption {
     display: none !important;
 
-    width: 0 !important;
-    height: 0 !important;
+    visibility: hidden !important;
 
+    height: 0 !important;
     min-height: 0 !important;
     max-height: 0 !important;
 
@@ -305,15 +538,15 @@ table.reportTable caption {
 
     border: 0 !important;
 
-    font-size: 0 !important;
     line-height: 0 !important;
+    font-size: 0 !important;
 
     overflow: hidden !important;
 }
 
 
 /* ============================================================
-   20. REMOVE REPORT TABLE TOOLTIP
+   18. REMOVE REPORT TABLE TOOLTIP
    ============================================================ */
 
 #tooltip,
@@ -327,15 +560,22 @@ table.reportTable caption {
     width: 0 !important;
     height: 0 !important;
 
+    min-width: 0 !important;
+    min-height: 0 !important;
+
     margin: 0 !important;
     padding: 0 !important;
+
+    border: 0 !important;
+
+    overflow: hidden !important;
 
     pointer-events: none !important;
 }
 
 
 /* ============================================================
-   21. REMOVE EMPTY ROWS
+   19. REMOVE EMPTY SPACER ROWS
    ============================================================ */
 
 table.reportTable tr:empty {
@@ -349,15 +589,81 @@ table.reportTable tr:empty {
 
 
 /* ============================================================
-   22. FINAL ALIGNMENT
+   20. REMOVE EMPTY HEADER CELLS
    ============================================================ */
 
-.reportTable tbody td:first-child {
-    text-align: left !important;
+table.reportTable thead th:empty {
+    height: 0 !important;
+
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
-.reportTable tbody td:not(:first-child),
-.reportTable tbody td:not(:first-child) .numeric,
-.reportTable tbody td:not(:first-child) .rectElem {
-    text-align: center !important;
+
+/* ============================================================
+   21. NO HOVER BACKGROUND
+   ============================================================ */
+
+.reportTable .hover {
+    background-color: transparent !important;
+}
+
+
+/* ============================================================
+   22. CLEAN UP
+   ============================================================ */
+
+table.reportTable,
+table.reportTable thead,
+table.reportTable tbody,
+table.reportTable tr,
+table.reportTable th,
+table.reportTable td {
+    box-shadow: none !important;
+}
+
+
+/* ============================================================
+   23. ABSOLUTE FINAL COLOR OVERRIDES
+   Keep these LAST.
+   ============================================================ */
+
+
+/* COMPLETE */
+
+.reportTable tbody tr > td:nth-of-type(2),
+.reportTable tbody tr > td:nth-of-type(2) * {
+    color: #666666 !important;
+}
+
+
+/* IN PROGRESS */
+
+.reportTable tbody tr > td:nth-of-type(3),
+.reportTable tbody tr > td:nth-of-type(3) * {
+    color: #f39c12 !important;
+}
+
+
+/* NOT REQUESTED */
+
+.reportTable tbody tr > td:nth-of-type(4),
+.reportTable tbody tr > td:nth-of-type(4) * {
+    color: #555555 !important;
+}
+
+
+/* REQUESTED */
+
+.reportTable tbody tr > td:nth-of-type(5),
+.reportTable tbody tr > td:nth-of-type(5) * {
+    color: #2f9145 !important;
+}
+
+
+/* ROW TOTAL */
+
+.reportTable tbody tr > td:nth-of-type(6),
+.reportTable tbody tr > td:nth-of-type(6) * {
+    color: #111111 !important;
 }
