@@ -395,3 +395,68 @@ tbody tr:last-child:hover td span {
   padding: 0 !important;
   border-radius: 0 !important;
 }
+
+
+
+/* =========================================
+   REMOVE LOOKER HOVERED-COLUMN LABEL
+   TOP-LEFT "#" / FIELD NAME
+   ========================================= */
+
+/* The top-left hover/field-name area */
+thead tr:first-child:first-child,
+thead tr:first-child > th:first-child {
+  font-size: 0 !important;
+  color: transparent !important;
+
+  pointer-events: none !important;
+
+  border: none !important;
+  background: transparent !important;
+
+  box-shadow: none !important;
+}
+
+
+/* Prevent generated text */
+thead tr:first-child > th:first-child::before,
+thead tr:first-child > th:first-child::after {
+  content: "" !important;
+  display: none !important;
+}
+
+
+/* Disable header hover interaction */
+thead th {
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+
+/* Disable ALL table interaction */
+table,
+thead,
+tbody,
+tr,
+th,
+td,
+th *,
+td * {
+  pointer-events: none !important;
+}
+
+
+/* Kill tooltip / hover overlays */
+.tooltip,
+.vis-tooltip,
+.looker-tooltip,
+.table-tooltip,
+.cell-tooltip,
+.hover-tooltip,
+[role="tooltip"],
+[aria-live="polite"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
