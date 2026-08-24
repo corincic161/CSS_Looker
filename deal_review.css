@@ -785,6 +785,246 @@ table.reportTable td,
    REMOVE SPACE ABOVE TABLE
    ============================================================ */
 
+
+
+/* ============================================================
+   STATUS COLORS
+   ADD THIS AT THE VERY BOTTOM
+   NO LAYOUT / WIDTH / DISPLAY CHANGES
+   ============================================================ */
+
+
+/* ============================================================
+   DEFAULT TEXT
+   ============================================================ */
+
+.reportTable {
+    --complete-color: #666666;
+    --progress-color: #f39c12;
+    --not-requested-color: #555555;
+    --requested-color: #2f9145;
+    --total-color: #111111;
+}
+
+
+/* ============================================================
+   TOP HEADERS
+   ============================================================ */
+
+/* Complete */
+
+.reportTable thead tr:first-child th:nth-of-type(1),
+.reportTable thead tr:first-child th:nth-of-type(1) * {
+    color: var(--complete-color) !important;
+}
+
+
+/* In Progress */
+
+.reportTable thead tr:first-child th:nth-of-type(2),
+.reportTable thead tr:first-child th:nth-of-type(2) * {
+    color: var(--progress-color) !important;
+}
+
+
+/* Not Requested */
+
+.reportTable thead tr:first-child th:nth-of-type(3),
+.reportTable thead tr:first-child th:nth-of-type(3) * {
+    color: var(--not-requested-color) !important;
+}
+
+
+/* Requested */
+
+.reportTable thead tr:first-child th:nth-of-type(4),
+.reportTable thead tr:first-child th:nth-of-type(4) * {
+    color: var(--requested-color) !important;
+}
+
+
+/* Row Total */
+
+.reportTable thead tr:first-child th:nth-of-type(5),
+.reportTable thead tr:first-child th:nth-of-type(5) * {
+    color: var(--total-color) !important;
+}
+
+
+/* ============================================================
+   SECOND HEADER ROW (#)
+   ============================================================ */
+
+/* Review Type */
+
+.reportTable thead tr:last-child th:nth-of-type(1),
+.reportTable thead tr:last-child th:nth-of-type(1) * {
+    color: #555555 !important;
+}
+
+
+/* Complete # */
+
+.reportTable thead tr:last-child th:nth-of-type(2),
+.reportTable thead tr:last-child th:nth-of-type(2) * {
+    color: var(--complete-color) !important;
+}
+
+
+/* In Progress # */
+
+.reportTable thead tr:last-child th:nth-of-type(3),
+.reportTable thead tr:last-child th:nth-of-type(3) * {
+    color: var(--progress-color) !important;
+}
+
+
+/* Not Requested # */
+
+.reportTable thead tr:last-child th:nth-of-type(4),
+.reportTable thead tr:last-child th:nth-of-type(4) * {
+    color: var(--not-requested-color) !important;
+}
+
+
+/* Requested # */
+
+.reportTable thead tr:last-child th:nth-of-type(5),
+.reportTable thead tr:last-child th:nth-of-type(5) * {
+    color: var(--requested-color) !important;
+}
+
+
+/* Row Total # */
+
+.reportTable thead tr:last-child th:nth-of-type(6),
+.reportTable thead tr:last-child th:nth-of-type(6) * {
+    color: var(--total-color) !important;
+}
+
+
+/* ============================================================
+   BODY VALUES
+   ============================================================ */
+
+/*
+   IMPORTANT:
+   These rules ONLY change color.
+   They do not touch:
+     display
+     width
+     position
+     margin
+     padding
+     flex
+*/
+
+
+/* COMPLETE */
+
+.reportTable tbody tr > td:nth-of-type(2),
+.reportTable tbody tr > td:nth-of-type(2) *,
+.reportTable tbody tr > td:nth-of-type(2) a {
+    color: var(--complete-color) !important;
+}
+
+
+/* IN PROGRESS */
+
+.reportTable tbody tr > td:nth-of-type(3),
+.reportTable tbody tr > td:nth-of-type(3) *,
+.reportTable tbody tr > td:nth-of-type(3) a {
+    color: var(--progress-color) !important;
+}
+
+
+/* NOT REQUESTED */
+
+.reportTable tbody tr > td:nth-of-type(4),
+.reportTable tbody tr > td:nth-of-type(4) *,
+.reportTable tbody tr > td:nth-of-type(4) a {
+    color: var(--not-requested-color) !important;
+}
+
+
+/* REQUESTED */
+
+.reportTable tbody tr > td:nth-of-type(5),
+.reportTable tbody tr > td:nth-of-type(5) *,
+.reportTable tbody tr > td:nth-of-type(5) a {
+    color: var(--requested-color) !important;
+}
+
+
+/* ROW TOTAL */
+
+.reportTable tbody tr > td:nth-of-type(6),
+.reportTable tbody tr > td:nth-of-type(6) *,
+.reportTable tbody tr > td:nth-of-type(6) a {
+    color: var(--total-color) !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* ============================================================
+   TOTAL ROW
+   ============================================================ */
+
+/* Complete total */
+
+.reportTable tbody tr:last-child > td:nth-of-type(2),
+.reportTable tbody tr:last-child > td:nth-of-type(2) * {
+    color: var(--complete-color) !important;
+}
+
+
+/* In Progress total */
+
+.reportTable tbody tr:last-child > td:nth-of-type(3),
+.reportTable tbody tr:last-child > td:nth-of-type(3) * {
+    color: var(--progress-color) !important;
+}
+
+
+/* Not Requested total */
+
+.reportTable tbody tr:last-child > td:nth-of-type(4),
+.reportTable tbody tr:last-child > td:nth-of-type(4) * {
+    color: var(--not-requested-color) !important;
+}
+
+
+/* Requested total */
+
+.reportTable tbody tr:last-child > td:nth-of-type(5),
+.reportTable tbody tr:last-child > td:nth-of-type(5) * {
+    color: var(--requested-color) !important;
+}
+
+
+/* Row Total */
+
+.reportTable tbody tr:last-child > td:nth-of-type(6),
+.reportTable tbody tr:last-child > td:nth-of-type(6) * {
+    color: var(--total-color) !important;
+}
+
+
+/* ============================================================
+   DRILL LINKS MUST KEEP COLUMN COLOR
+   ============================================================ */
+
+.reportTable tbody td a,
+.reportTable tbody td a:visited,
+.reportTable tbody td a:active {
+    color: inherit !important;
+}
+
+
+/* ============================================================
+   END STATUS COLORS
+   ============================================================ */
 table.reportTable,
 table.reportTable thead,
 table.reportTable thead tr:first-child {
