@@ -1128,3 +1128,51 @@ table.reportTable td,
 
     text-align: center !important;
 }
+
+/* ============================================================
+   FINAL FIX — # HEADER COLORS ONLY
+   DO NOT CHANGE ANY OTHER CSS
+   ============================================================ */
+
+
+/* Review Type */
+.reportTable thead tr:last-child th:nth-child(1),
+.reportTable thead tr:last-child th:nth-child(1) * {
+    color: #555555 !important;
+}
+
+
+/* Complete # = GRAY */
+.reportTable thead tr:last-child th:nth-child(2),
+.reportTable thead tr:last-child th:nth-child(2) * {
+    color: #666666 !important;
+}
+
+
+/* In Progress # = ORANGE */
+.reportTable thead tr:last-child th:nth-child(3),
+.reportTable thead tr:last-child th:nth-child(3) * {
+    color: #f39c12 !important;
+}
+
+
+/* Not Requested # = GRAY */
+.reportTable thead tr:last-child th:nth-child(4),
+.reportTable thead tr:last-child th:nth-child(4) * {
+    color: #555555 !important;
+}
+
+
+/* Requested # = GREEN */
+.reportTable thead tr:last-child th:nth-child(5),
+.reportTable thead tr:last-child th:nth-child(5) * {
+    color: #2f9145 !important;
+}
+
+
+/* Row Total # = BLACK */
+.reportTable thead tr:last-child th:nth-child(6),
+.reportTable thead tr:last-child th:nth-child(6) * {
+    color: #111111 !important;
+}
+
