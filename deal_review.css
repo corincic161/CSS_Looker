@@ -1,36 +1,21 @@
 /* ============================================================
    LOOKER REPORT TABLE
-   Full custom theme
-   ------------------------------------------------------------
-   Target:
-   Review Type | Not Requested | Requested |
-   In Progress | Completed | Total
-
-   IMPORTANT:
-   - Numeric badge styling is applied to links/elements INSIDE
-     cells instead of the TD itself.
-   - This helps preserve Looker's drill-down click behavior.
+   Compact centered badges + clickable drill-down
    ============================================================ */
 
 
 /* ============================================================
-   1. TABLE
+   TABLE
    ============================================================ */
 
 table {
     width: 100% !important;
     border-collapse: collapse !important;
     border-spacing: 0 !important;
-
     background: #ffffff !important;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif !important;
-
-    font-size: 14px !important;
-
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 13px !important;
     color: #202124 !important;
 
     box-shadow: none !important;
@@ -38,7 +23,7 @@ table {
 
 
 /* ============================================================
-   2. TABLE HEADER
+   HEADER
    ============================================================ */
 
 thead {
@@ -52,17 +37,15 @@ thead tr {
 thead th {
     background: #ffffff !important;
 
-    color: #777777 !important;
+    color: #666666 !important;
 
-    font-size: 12px !important;
+    font-size: 11px !important;
     font-weight: 600 !important;
-
-    line-height: 1.3 !important;
 
     text-align: center !important;
     vertical-align: middle !important;
 
-    padding: 12px 14px !important;
+    padding: 10px 8px !important;
 
     border: none !important;
     border-bottom: 1px solid #dddddd !important;
@@ -71,7 +54,7 @@ thead th {
 }
 
 
-/* First header = Review Type */
+/* First header */
 
 thead th:first-child {
     text-align: left !important;
@@ -79,57 +62,46 @@ thead th:first-child {
 
 
 /* ============================================================
-   3. HEADER COLORS
+   HEADER COLORS
    ============================================================ */
 
+/* Complete */
 
-/* Not Requested */
-
-thead th:nth-child(2),
-thead th:nth-child(2) *,
-thead th:nth-child(2) a {
-    color: #777777 !important;
-}
-
-
-/* Requested */
-
-thead th:nth-child(3),
-thead th:nth-child(3) *,
-thead th:nth-child(3) a {
-    color: #f39c12 !important;
+thead th:nth-child(1) {
+    color: #666666 !important;
 }
 
 
 /* In Progress */
 
-thead th:nth-child(4),
-thead th:nth-child(4) *,
-thead th:nth-child(4) a {
+thead th:nth-child(2) {
+    color: #f39c12 !important;
+}
+
+
+/* Not Requested */
+
+thead th:nth-child(3) {
     color: #555555 !important;
 }
 
 
-/* Completed */
+/* Requested */
 
-thead th:nth-child(5),
-thead th:nth-child(5) *,
-thead th:nth-child(5) a {
-    color: #30964b !important;
+thead th:nth-child(4) {
+    color: #2f9e44 !important;
 }
 
 
-/* Total */
+/* Row Total */
 
-thead th:nth-child(6),
-thead th:nth-child(6) *,
-thead th:nth-child(6) a {
-    color: #333333 !important;
+thead th:nth-child(5) {
+    color: #222222 !important;
 }
 
 
 /* ============================================================
-   4. BODY ROWS
+   BODY ROWS
    ============================================================ */
 
 tbody tr {
@@ -137,7 +109,7 @@ tbody tr {
 }
 
 
-/* Alternating row */
+/* Alternate row */
 
 tbody tr:nth-child(even):not(:last-child) {
     background: #f5f5f5 !important;
@@ -150,37 +122,32 @@ tbody tr:nth-child(odd):not(:last-child) {
 
 
 /* ============================================================
-   5. BODY CELLS
+   BODY CELLS
    ============================================================ */
 
 tbody td {
     background: transparent !important;
 
-    padding: 10px 14px !important;
+    padding: 7px 8px !important;
 
     border: none !important;
     border-bottom: 1px solid #dddddd !important;
 
-    text-align: center !important;
     vertical-align: middle !important;
 
-    font-size: 14px !important;
+    font-size: 12px !important;
     font-weight: 500 !important;
 
-    line-height: 1.35 !important;
+    line-height: 1.25 !important;
 
     box-shadow: none !important;
 
-    /* IMPORTANT:
-       Do not disable pointer events.
-       Looker needs them for drill-down.
-    */
     pointer-events: auto !important;
 }
 
 
 /* ============================================================
-   6. FIRST COLUMN - REVIEW TYPE
+   FIRST COLUMN / ROW LABEL
    ============================================================ */
 
 tbody td:first-child {
@@ -188,55 +155,61 @@ tbody td:first-child {
 
     color: #111111 !important;
 
-    font-size: 15px !important;
     font-weight: 500 !important;
 
-    padding-left: 0 !important;
-}
-
-
-/* Keep first-column links normal */
-
-tbody td:first-child a {
-    color: #111111 !important;
-
-    background: transparent !important;
-
-    padding: 0 !important;
-
-    border-radius: 0 !important;
-
-    text-decoration: none !important;
+    padding-left: 12px !important;
 }
 
 
 /* ============================================================
-   7. ALL DRILLABLE NUMBERS
+   CENTER ALL NUMERIC CELLS
+   ============================================================ */
+
+tbody td:not(:first-child) {
+    text-align: center !important;
+}
+
+
+/* ============================================================
+   DRILLABLE NUMBER LINKS
    ============================================================ */
 
 /*
-   Looker commonly renders drillable values as <a>.
-   The badge goes on the link rather than the TD.
+   IMPORTANT:
+   Badge is on the <a>, NOT the <td>.
 
-   This preserves the clickable drill target.
+   Therefore the background only surrounds the number.
 */
 
-tbody td:not(:first-child) a {
-    display: inline-block !important;
+tbody td a {
+    display: inline-flex !important;
 
-    min-width: 18px !important;
+    align-items: center !important;
+    justify-content: center !important;
 
-    padding: 6px 10px !important;
+    width: auto !important;
 
-    border-radius: 7px !important;
+    min-width: 24px !important;
+    max-width: 52px !important;
+
+    height: 22px !important;
+
+    padding: 0 7px !important;
+
+    margin: 0 auto !important;
+
+    box-sizing: border-box !important;
+
+    border-radius: 6px !important;
 
     text-align: center !important;
 
+    font-size: 12px !important;
+    font-weight: 600 !important;
+
+    line-height: 22px !important;
+
     text-decoration: none !important;
-
-    font-weight: 700 !important;
-
-    line-height: 1.2 !important;
 
     cursor: pointer !important;
 
@@ -247,126 +220,7 @@ tbody td:not(:first-child) a {
 }
 
 
-/* ============================================================
-   8. NOT REQUESTED
-   Column 2
-   ============================================================ */
-
-tbody td:nth-child(2) {
-    color: #777777 !important;
-    font-weight: 700 !important;
-}
-
-
-tbody td:nth-child(2) a {
-    background-color: #f0f0f0 !important;
-
-    color: #777777 !important;
-
-    font-weight: 700 !important;
-}
-
-
-/* ============================================================
-   9. REQUESTED
-   Column 3
-   ============================================================ */
-
-tbody td:nth-child(3) {
-    color: #f39c12 !important;
-    font-weight: 700 !important;
-}
-
-
-tbody td:nth-child(3) a {
-    background-color: #fff0dd !important;
-
-    color: #f39c12 !important;
-
-    font-weight: 700 !important;
-}
-
-
-/* ============================================================
-   10. IN PROGRESS
-   Column 4
-   ============================================================ */
-
-tbody td:nth-child(4) {
-    color: #555555 !important;
-    font-weight: 700 !important;
-}
-
-
-tbody td:nth-child(4) a {
-    background-color: #e9e9e9 !important;
-
-    color: #555555 !important;
-
-    font-weight: 700 !important;
-}
-
-
-/* ============================================================
-   11. COMPLETED
-   Column 5
-   ============================================================ */
-
-tbody td:nth-child(5) {
-    color: #30964b !important;
-    font-weight: 700 !important;
-}
-
-
-tbody td:nth-child(5) a {
-    background-color: #e4f1e8 !important;
-
-    color: #30964b !important;
-
-    font-weight: 700 !important;
-}
-
-
-/* ============================================================
-   12. TOTAL COLUMN
-   Column 6
-   ============================================================ */
-
-tbody td:nth-child(6) {
-    color: #222222 !important;
-
-    font-weight: 700 !important;
-}
-
-
-/*
-   Total should NOT look like a badge,
-   but if it is drillable we keep the link clickable.
-*/
-
-tbody td:nth-child(6) a {
-    background: transparent !important;
-
-    color: #222222 !important;
-
-    font-weight: 700 !important;
-
-    padding: 6px 4px !important;
-
-    border-radius: 0 !important;
-
-    cursor: pointer !important;
-}
-
-
-/* ============================================================
-   13. LINK CONTENT
-   ============================================================ */
-
-/*
-   Prevent nested elements inside Looker's drill link
-   from blocking the click.
-*/
+/* Make nested elements unable to block drill click */
 
 tbody td a span,
 tbody td a div {
@@ -375,59 +229,128 @@ tbody td a div {
 
 
 /* ============================================================
-   14. HOVER - DRILLABLE NUMBERS
+   COMPLETE
+   Column 2 in the BODY because Review Type is first body col
    ============================================================ */
 
-tbody td:not(:first-child) a:hover {
-    text-decoration: none !important;
-
-    filter: brightness(0.96);
-
-    cursor: pointer !important;
+tbody td:nth-child(2) {
+    color: #555555 !important;
 }
 
 
-/* Requested hover */
+tbody td:nth-child(2) a {
+    background: #f0f0f0 !important;
 
-tbody td:nth-child(3) a:hover {
-    background-color: #ffe8c7 !important;
+    color: #555555 !important;
 }
 
 
-/* Completed hover */
+/* ============================================================
+   IN PROGRESS
+   ============================================================ */
 
-tbody td:nth-child(5) a:hover {
-    background-color: #d9ebdf !important;
+tbody td:nth-child(3) {
+    color: #f39c12 !important;
 }
 
 
-/* Not Requested hover */
+tbody td:nth-child(3) a {
+    background: #fff0dc !important;
+
+    color: #f39c12 !important;
+}
+
+
+/* ============================================================
+   NOT REQUESTED
+   ============================================================ */
+
+tbody td:nth-child(4) {
+    color: #555555 !important;
+}
+
+
+tbody td:nth-child(4) a {
+    background: #eeeeee !important;
+
+    color: #555555 !important;
+}
+
+
+/* ============================================================
+   REQUESTED
+   ============================================================ */
+
+tbody td:nth-child(5) {
+    color: #2f9e44 !important;
+}
+
+
+tbody td:nth-child(5) a {
+    background: #e5f2e8 !important;
+
+    color: #2f9e44 !important;
+}
+
+
+/* ============================================================
+   ROW TOTAL
+   ============================================================ */
+
+tbody td:nth-child(6) {
+    color: #111111 !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* No colored badge on Row Total */
+
+tbody td:nth-child(6) a {
+    background: transparent !important;
+
+    color: #111111 !important;
+
+    min-width: auto !important;
+
+    padding: 0 4px !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* ============================================================
+   HOVER
+   ============================================================ */
 
 tbody td:nth-child(2) a:hover {
-    background-color: #e8e8e8 !important;
+    background: #e5e5e5 !important;
 }
 
 
-/* In Progress hover */
+tbody td:nth-child(3) a:hover {
+    background: #ffe5bd !important;
+}
+
 
 tbody td:nth-child(4) a:hover {
-    background-color: #dfdfdf !important;
+    background: #e3e3e3 !important;
+}
+
+
+tbody td:nth-child(5) a:hover {
+    background: #d8ebdd !important;
+}
+
+
+tbody td:nth-child(6) a:hover {
+    background: transparent !important;
+    text-decoration: underline !important;
 }
 
 
 /* ============================================================
-   15. FOCUS
-   Keep keyboard/drill accessibility
-   ============================================================ */
-
-tbody td a:focus {
-    outline: 1px solid #999999 !important;
-    outline-offset: 2px !important;
-}
-
-
-/* ============================================================
-   16. TOTAL ROW
+   TOTAL ROW
    ============================================================ */
 
 tbody tr:last-child {
@@ -438,12 +361,10 @@ tbody tr:last-child {
 tbody tr:last-child td {
     background: #ffffff !important;
 
-    border-top: 1px solid #bdbdbd !important;
-
+    border-top: 1px solid #c8c8c8 !important;
     border-bottom: none !important;
 
-    padding-top: 14px !important;
-    padding-bottom: 10px !important;
+    padding-top: 11px !important;
 
     font-weight: 700 !important;
 }
@@ -454,47 +375,41 @@ tbody tr:last-child td {
 tbody tr:last-child td:first-child {
     color: #333333 !important;
 
-    font-size: 14px !important;
-
     font-weight: 700 !important;
 
     text-transform: uppercase !important;
 }
 
 
-/* ============================================================
-   17. REMOVE BADGES FROM TOTAL ROW
-   ============================================================ */
-
-/*
-   Total row numbers can still be clickable/drillable,
-   but visually they are plain text.
-*/
+/* Remove badges from TOTAL row */
 
 tbody tr:last-child td a {
     background: transparent !important;
+
+    min-width: auto !important;
+    max-width: none !important;
+
+    height: auto !important;
 
     padding: 0 !important;
 
     border-radius: 0 !important;
 
-    min-width: 0 !important;
+    line-height: normal !important;
 
     font-weight: 700 !important;
-
-    cursor: pointer !important;
 }
 
 
-/* Total - Not Requested */
+/* Total Complete */
 
 tbody tr:last-child td:nth-child(2),
 tbody tr:last-child td:nth-child(2) a {
-    color: #777777 !important;
+    color: #555555 !important;
 }
 
 
-/* Total - Requested */
+/* Total In Progress */
 
 tbody tr:last-child td:nth-child(3),
 tbody tr:last-child td:nth-child(3) a {
@@ -502,19 +417,19 @@ tbody tr:last-child td:nth-child(3) a {
 }
 
 
-/* Total - In Progress */
+/* Total Not Requested */
 
 tbody tr:last-child td:nth-child(4),
 tbody tr:last-child td:nth-child(4) a {
-    color: #444444 !important;
+    color: #333333 !important;
 }
 
 
-/* Total - Completed */
+/* Total Requested */
 
 tbody tr:last-child td:nth-child(5),
 tbody tr:last-child td:nth-child(5) a {
-    color: #30964b !important;
+    color: #2f9e44 !important;
 }
 
 
@@ -527,7 +442,47 @@ tbody tr:last-child td:nth-child(6) a {
 
 
 /* ============================================================
-   18. REMOVE DEFAULT LINK DECORATION
+   REMOVE THE STRAY # / HOVER FIELD INDICATOR
+   ============================================================ */
+
+/*
+   Hide standalone header links/icons that Looker uses
+   for the # / measure-name hover indicator.
+*/
+
+thead a[href="#"],
+thead a:not([href]) {
+    display: none !important;
+}
+
+
+/*
+   Hide common tooltip/title pseudo-elements in headers.
+*/
+
+thead th::before,
+thead th::after {
+    display: none !important;
+    content: none !important;
+}
+
+
+/* ============================================================
+   REMOVE HEADER TOOLTIP DECORATION
+   ============================================================ */
+
+thead th a {
+    text-decoration: none !important;
+}
+
+
+thead th a:hover {
+    text-decoration: none !important;
+}
+
+
+/* ============================================================
+   LINKS
    ============================================================ */
 
 tbody a,
@@ -537,67 +492,35 @@ tbody a:active {
 }
 
 
-/* Preserve column colors after link is visited */
+/* Preserve colors after visited */
 
 tbody td:nth-child(2) a:visited {
-    color: #777777 !important;
+    color: #555555 !important;
 }
+
 
 tbody td:nth-child(3) a:visited {
     color: #f39c12 !important;
 }
 
+
 tbody td:nth-child(4) a:visited {
     color: #555555 !important;
 }
 
+
 tbody td:nth-child(5) a:visited {
-    color: #30964b !important;
+    color: #2f9e44 !important;
 }
+
 
 tbody td:nth-child(6) a:visited {
-    color: #222222 !important;
+    color: #111111 !important;
 }
 
 
 /* ============================================================
-   19. REMOVE UNWANTED TABLE CHROME
-   ============================================================ */
-
-table,
-thead,
-tbody,
-tr,
-th,
-td {
-    box-shadow: none !important;
-}
-
-
-/* ============================================================
-   20. ROW HOVER
-   Do NOT put overlays over clickable values.
-   ============================================================ */
-
-tbody tr:hover {
-    box-shadow: none !important;
-}
-
-
-/* Keep alternating backgrounds on hover */
-
-tbody tr:nth-child(even):not(:last-child):hover {
-    background: #f5f5f5 !important;
-}
-
-
-tbody tr:nth-child(odd):not(:last-child):hover {
-    background: #ffffff !important;
-}
-
-
-/* ============================================================
-   21. REMOVE POSSIBLE PSEUDO-ELEMENT CLICK BLOCKERS
+   PREVENT CLICK BLOCKING
    ============================================================ */
 
 tbody td::before,
@@ -607,21 +530,16 @@ tbody td::after {
 
 
 /* ============================================================
-   22. CLEAN LAST COLUMN
+   REMOVE TABLE CHROME
    ============================================================ */
 
-thead th:last-child,
-tbody td:last-child {
-    padding-right: 14px !important;
-}
-
-
-/* ============================================================
-   23. CLEAN FIRST COLUMN
-   ============================================================ */
-
-thead th:first-child {
-    padding-left: 0 !important;
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+    box-shadow: none !important;
 }
 
 
