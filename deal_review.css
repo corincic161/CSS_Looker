@@ -1034,79 +1034,97 @@ table.reportTable td,
 
 
 /* ============================================================
-   FINAL NUMERIC CENTERING FIX
-   Keep all existing colors/layout
+   DETAIL VALUE POSITIONING FIX
+   Do not change colors
    ============================================================ */
 
 
-/* Center every numeric table cell */
-.reportTable tbody td:not(:first-child) {
+/* ------------------------------------------------------------
+   Make regular numeric cells the positioning reference
+   ------------------------------------------------------------ */
+
+.reportTable tbody tr:not(:last-child) td:not(:first-child) {
+    position: relative !important;
     text-align: center !important;
 }
 
 
-/* Center Report Table numeric wrapper */
-.reportTable tbody .numeric,
-.reportTable tbody .numeric * {
+/* ------------------------------------------------------------
+   Regular detail values
+
+   Instead of centering text inside Looker's narrow value
+   element, move the actual value element to the center
+   of its containing cell.
+   ------------------------------------------------------------ */
+
+.reportTable tbody tr:not(:last-child) .rectElem,
+.reportTable tbody tr:not(:last-child) .rectElem.animated {
+
+    position: relative !important;
+
+    left: 50% !important;
+
+    transform: translateX(-50%) !important;
+
     text-align: center !important;
-}
 
-
-/* Center regular rect/value elements */
-.reportTable tbody .rectElem,
-.reportTable tbody .rectElem.animated {
-    text-align: center !important;
-}
-
-
-/* Center everything inside the value element */
-.reportTable tbody .rectElem *,
-.reportTable tbody .rectElem.animated * {
-    text-align: center !important;
-}
-
-
-/* Center drill-down links without changing their structure */
-.reportTable tbody .numeric a,
-.reportTable tbody .rectElem a,
-.reportTable tbody .rectElem.animated a {
-    text-align: center !important;
-}
-
-
-/* ============================================================
-   IMPORTANT:
-   Remove the animated 4px margin for BODY values.
-
-   That margin was useful in the original visualization,
-   but it is shifting regular values relative to the TOTAL.
-   ============================================================ */
-
-.reportTable tbody .rectElem.animated {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
 
 
-/* ============================================================
-   Make numeric cell padding symmetrical
-   ============================================================ */
+/* ------------------------------------------------------------
+   Numeric element inside regular rows
+   ------------------------------------------------------------ */
 
-.reportTable tbody td:not(:first-child) {
-    padding-left: 8px !important;
-    padding-right: 8px !important;
+.reportTable tbody tr:not(:last-child) .numeric {
+
+    text-align: center !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 
-/* ============================================================
-   TOTAL ROW
-   Keep exactly the same centering
-   ============================================================ */
+/* ------------------------------------------------------------
+   Content inside value
+   ------------------------------------------------------------ */
 
-.reportTable tbody tr:last-child td:not(:first-child),
-.reportTable tbody tr:last-child .numeric,
-.reportTable tbody tr:last-child .numeric *,
+.reportTable tbody tr:not(:last-child) .rectElem *,
+.reportTable tbody tr:not(:last-child) .rectElem.animated *,
+.reportTable tbody tr:not(:last-child) .numeric * {
+
+    text-align: center !important;
+}
+
+
+/* ------------------------------------------------------------
+   Drill links
+   ------------------------------------------------------------ */
+
+.reportTable tbody tr:not(:last-child) .rectElem a,
+.reportTable tbody tr:not(:last-child) .numeric a {
+
+    text-align: center !important;
+}
+
+
+/* ------------------------------------------------------------
+   IMPORTANT:
+   Do NOT move TOTAL row.
+
+   Your TOTAL values are already correctly positioned.
+   ------------------------------------------------------------ */
+
 .reportTable tbody tr:last-child .rectElem,
-.reportTable tbody tr:last-child .rectElem * {
+.reportTable tbody tr:last-child .rectElem.animated,
+.reportTable tbody tr:last-child .numeric {
+
+    left: auto !important;
+
+    transform: none !important;
+
+    position: static !important;
+
     text-align: center !important;
 }
