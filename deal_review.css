@@ -1190,4 +1190,44 @@ table.reportTable thead tr:first-child {
 
 /* ============================================================
    END — ALL TEXT BLACK
+
+
+
+/* ============================================================
+   FINAL OVERRIDE — ALL COLUMNS BLACK
+   COLOR ONLY — NO STRUCTURE/LAYOUT CHANGES
+   ============================================================ */
+
+.reportTable,
+.reportTable *,
+.reportTable th,
+.reportTable th *,
+.reportTable td,
+.reportTable td *,
+.reportTable .headerCell,
+.reportTable .headerCell *,
+.reportTable .rowCell,
+.reportTable .rowCell *,
+.reportTable .indexCell,
+.reportTable .indexCell *,
+.reportTable .numeric,
+.reportTable .numeric *,
+.reportTable .rectElem,
+.reportTable .rectElem *,
+.reportTable .rectElem.animated,
+.reportTable .rectElem.animated *,
+.reportTable a,
+.reportTable a:link,
+.reportTable a:visited,
+.reportTable a:hover,
+.reportTable a:active {
+    color: #000000 !important;
+}
+
+/* SVG-rendered values, if Looker uses them */
+.reportTable svg text,
+.reportTable svg tspan {
+    fill: #000000 !important;
+    color: #000000 !important;
+}
    ============================================================ */
