@@ -1030,3 +1030,83 @@ table.reportTable td,
 /* ============================================================
    END COLOR PATCH
    ============================================================ */
+
+
+
+/* ============================================================
+   FINAL NUMERIC CENTERING FIX
+   Keep all existing colors/layout
+   ============================================================ */
+
+
+/* Center every numeric table cell */
+.reportTable tbody td:not(:first-child) {
+    text-align: center !important;
+}
+
+
+/* Center Report Table numeric wrapper */
+.reportTable tbody .numeric,
+.reportTable tbody .numeric * {
+    text-align: center !important;
+}
+
+
+/* Center regular rect/value elements */
+.reportTable tbody .rectElem,
+.reportTable tbody .rectElem.animated {
+    text-align: center !important;
+}
+
+
+/* Center everything inside the value element */
+.reportTable tbody .rectElem *,
+.reportTable tbody .rectElem.animated * {
+    text-align: center !important;
+}
+
+
+/* Center drill-down links without changing their structure */
+.reportTable tbody .numeric a,
+.reportTable tbody .rectElem a,
+.reportTable tbody .rectElem.animated a {
+    text-align: center !important;
+}
+
+
+/* ============================================================
+   IMPORTANT:
+   Remove the animated 4px margin for BODY values.
+
+   That margin was useful in the original visualization,
+   but it is shifting regular values relative to the TOTAL.
+   ============================================================ */
+
+.reportTable tbody .rectElem.animated {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+
+/* ============================================================
+   Make numeric cell padding symmetrical
+   ============================================================ */
+
+.reportTable tbody td:not(:first-child) {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+
+/* ============================================================
+   TOTAL ROW
+   Keep exactly the same centering
+   ============================================================ */
+
+.reportTable tbody tr:last-child td:not(:first-child),
+.reportTable tbody tr:last-child .numeric,
+.reportTable tbody tr:last-child .numeric *,
+.reportTable tbody tr:last-child .rectElem,
+.reportTable tbody tr:last-child .rectElem * {
+    text-align: center !important;
+}
