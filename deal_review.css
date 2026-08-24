@@ -1,3 +1,5 @@
+/* 
+
 /* ==========================================================
    LOOKER REPORT TABLE — STATUS MATRIX
    Exact column order:
@@ -513,4 +515,185 @@ table.reportTable th:first-child * {
 .reportTable th {
   box-shadow: none !important;
   outline: none !important;
+}
+
+
+*/
+
+/* ================================
+   STATUS MATRIX - LOOKER TABLE
+   ================================ */
+
+/* Main visualization/card */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background: #ffffff !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  color: #1f2937 !important;
+}
+
+/* --------------------------------
+   HEADER
+   -------------------------------- */
+
+thead th {
+  background: #ffffff !important;
+  border: none !important;
+  border-bottom: 1px solid #d9d9d9 !important;
+
+  padding: 12px 14px !important;
+
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #737373 !important;
+  text-align: center !important;
+  vertical-align: bottom !important;
+}
+
+/* First column = Review Type */
+thead th:first-child {
+  text-align: left !important;
+  min-width: 160px !important;
+}
+
+/* Requested header */
+thead th:nth-child(5) {
+  color: #f28c00 !important;
+}
+
+/* Complete / Completed header */
+thead th:nth-child(2) {
+  color: #2f8f46 !important;
+}
+
+/* --------------------------------
+   BODY
+   -------------------------------- */
+
+tbody td {
+  border: none !important;
+  padding: 12px 14px !important;
+  font-size: 13px !important;
+  text-align: center !important;
+  background: #ffffff !important;
+}
+
+/* Review Type */
+tbody td:first-child {
+  text-align: left !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: #111827 !important;
+}
+
+/* Alternating row like target */
+tbody tr:nth-child(even) td {
+  background: #f5f5f5 !important;
+}
+
+/* --------------------------------
+   STATUS PILLS
+   -------------------------------- */
+
+/* Completed */
+tbody td:nth-child(2) span {
+  display: inline-block !important;
+  min-width: 38px !important;
+  padding: 7px 9px !important;
+
+  background: #e7f3e9 !important;
+  color: #2f8f46 !important;
+
+  border-radius: 7px !important;
+  font-weight: 700 !important;
+}
+
+/* In Progress */
+tbody td:nth-child(3) span {
+  display: inline-block !important;
+  min-width: 38px !important;
+  padding: 7px 9px !important;
+
+  background: #eeeeee !important;
+  color: #555555 !important;
+
+  border-radius: 7px !important;
+  font-weight: 700 !important;
+}
+
+/* Not Requested */
+tbody td:nth-child(4) span {
+  display: inline-block !important;
+  min-width: 38px !important;
+  padding: 7px 9px !important;
+
+  background: #f1f1f1 !important;
+  color: #777777 !important;
+
+  border-radius: 7px !important;
+  font-weight: 700 !important;
+}
+
+/* Requested */
+tbody td:nth-child(5) span {
+  display: inline-block !important;
+  min-width: 38px !important;
+  padding: 7px 9px !important;
+
+  background: #fff0dc !important;
+  color: #f28c00 !important;
+
+  border-radius: 7px !important;
+  font-weight: 700 !important;
+}
+
+/* --------------------------------
+   ROW TOTAL
+   -------------------------------- */
+
+tbody td:last-child {
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+}
+
+/* --------------------------------
+   GRAND TOTAL ROW
+   -------------------------------- */
+
+tbody tr:last-child td {
+  background: #ffffff !important;
+  border-top: 1px solid #cfcfcf !important;
+
+  padding-top: 16px !important;
+  font-weight: 700 !important;
+}
+
+/* Don't show pills on grand total */
+tbody tr:last-child td span {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Completed total */
+tbody tr:last-child td:nth-child(2) span {
+  color: #2f8f46 !important;
+}
+
+/* Requested total */
+tbody tr:last-child td:nth-child(5) span {
+  color: #f28c00 !important;
+}
+
+/* --------------------------------
+   REMOVE DEFAULT LOOKER EFFECTS
+   -------------------------------- */
+
+th,
+td {
+  box-shadow: none !important;
+}
+
+tbody tr:hover td {
+  background: inherit !important;
 }
