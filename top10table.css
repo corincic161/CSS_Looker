@@ -1,6 +1,7 @@
 /* ============================================================
    LOOKER REPORT TABLE
    RESPONSIVE / CLEAN BLACK VERSION
+   11 COLUMNS
    ============================================================ */
 
 
@@ -89,11 +90,9 @@ table.reportTable caption,
     padding: 0 !important;
 
     border: 0 !important;
-
     box-shadow: none !important;
 
     overflow: hidden !important;
-
     pointer-events: none !important;
 }
 
@@ -129,7 +128,6 @@ table.reportTable caption,
 .reportTable tbody {
     margin: 0 !important;
     padding: 0 !important;
-
     border-spacing: 0 !important;
 }
 
@@ -191,7 +189,6 @@ table.reportTable caption,
 
     font-size: 12px !important;
     font-weight: 600 !important;
-
     line-height: 1.2 !important;
 
     color: #000000 !important;
@@ -219,7 +216,6 @@ table.reportTable caption,
 
     font-size: 12px !important;
     font-weight: 600 !important;
-
     line-height: 1.2 !important;
 
     color: #000000 !important;
@@ -250,7 +246,6 @@ table.reportTable caption,
 
     font-size: 12px !important;
     font-weight: 400 !important;
-
     line-height: 1.25 !important;
 
     color: #000000 !important;
@@ -273,21 +268,21 @@ table.reportTable caption,
 
 /* ============================================================
    RESPONSIVE COLUMN WIDTHS
+   11 COLUMNS - TOTAL = 100%
    ============================================================ */
 
 /*
-   Widths are relative to the full table.
-
-   ID                         4%
-   Region                     4%
-   Client                     9%
-   Name                      31%
-   Deal Review Status         8%
-   CDR Type                   6%
-   Reporting Stage            9%
-   Start Date                 7%
-   Estimated Margin           9%
-   Total TCV                 13%
+   1  ID                         4%
+   2  Region                     4%
+   3  Client                     8%
+   4  Name                      25%
+   5  Deal Review Status         8%
+   6  CDR Type                   6%
+   7  Reporting Stage            8%
+   8  Start Date                 7%
+   9  Estimated Margin           8%
+   10 New Column                10%
+   11 Total TCV                 12%
 
    TOTAL = 100%
 */
@@ -313,7 +308,7 @@ table.reportTable caption,
 
 .reportTable th:nth-child(3),
 .reportTable td:nth-child(3) {
-    width: 9% !important;
+    width: 8% !important;
 }
 
 
@@ -321,7 +316,7 @@ table.reportTable caption,
 
 .reportTable th:nth-child(4),
 .reportTable td:nth-child(4) {
-    width: 31% !important;
+    width: 25% !important;
 }
 
 
@@ -345,7 +340,7 @@ table.reportTable caption,
 
 .reportTable th:nth-child(7),
 .reportTable td:nth-child(7) {
-    width: 9% !important;
+    width: 8% !important;
 }
 
 
@@ -361,15 +356,23 @@ table.reportTable caption,
 
 .reportTable th:nth-child(9),
 .reportTable td:nth-child(9) {
-    width: 9% !important;
+    width: 8% !important;
 }
 
 
-/* 10 - Total TCV */
+/* 10 - NEW COLUMN */
 
 .reportTable th:nth-child(10),
 .reportTable td:nth-child(10) {
-    width: 13% !important;
+    width: 10% !important;
+}
+
+
+/* 11 - Total TCV */
+
+.reportTable th:nth-child(11),
+.reportTable td:nth-child(11) {
+    width: 12% !important;
 }
 
 
@@ -485,16 +488,31 @@ table.reportTable caption,
 
 
 /* ============================================================
-   TOTAL TCV
+   NEW COLUMN - COLUMN 10
    ============================================================ */
 
 .reportTable th:nth-child(10),
 .reportTable th:nth-child(10) * {
-    text-align: center !important;
+    text-align: left !important;
 }
 
 .reportTable td:nth-child(10),
 .reportTable td:nth-child(10) * {
+    text-align: left !important;
+}
+
+
+/* ============================================================
+   TOTAL TCV - NOW COLUMN 11
+   ============================================================ */
+
+.reportTable th:nth-child(11),
+.reportTable th:nth-child(11) * {
+    text-align: center !important;
+}
+
+.reportTable td:nth-child(11),
+.reportTable td:nth-child(11) * {
     text-align: right !important;
 
     white-space: nowrap !important;
@@ -605,7 +623,6 @@ table.reportTable caption,
     box-shadow: none !important;
 }
 
-
 .reportTable .rectElem *,
 .reportTable .rectElem.animated * {
     font-family: var(--font) !important;
@@ -622,7 +639,6 @@ table.reportTable caption,
 
     box-shadow: none !important;
 }
-
 
 .reportTable .rectElem.animated {
     margin: 4px;
@@ -654,7 +670,6 @@ table.reportTable caption,
 
     cursor: pointer !important;
 }
-
 
 .reportTable tbody a:hover {
     color: #000000 !important;
@@ -698,7 +713,6 @@ table.reportTable caption,
 
     text-transform: none !important;
 }
-
 
 .reportTable tbody tr:last-child td {
     padding-top: 7px !important;
