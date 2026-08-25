@@ -851,3 +851,65 @@ table.reportTable thead tr:first-child {
 /* ============================================================
    END
    ============================================================ */
+
+
+
+/* ============================================================
+   DEBUG / FORCE ALL COLUMNS VISIBLE
+   ============================================================ */
+
+.reportTable {
+    width: 100% !important;
+    max-width: none !important;
+    table-layout: auto !important;
+}
+
+.reportTable th,
+.reportTable td {
+    display: table-cell !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    width: auto !important;
+    min-width: 70px !important;
+    max-width: none !important;
+
+    overflow: visible !important;
+    text-overflow: clip !important;
+}
+
+.reportTable .hidden {
+    display: table-cell !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Give Name more room */
+.reportTable th:nth-child(4),
+.reportTable td:nth-child(4) {
+    min-width: 200px !important;
+}
+
+/* Force last column visible */
+.reportTable th:last-child,
+.reportTable td:last-child {
+    display: table-cell !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    min-width: 100px !important;
+
+    white-space: nowrap !important;
+}
+
+/* Last column values */
+.reportTable td:last-child,
+.reportTable td:last-child * {
+    text-align: right !important;
+}
+
+/* Last column header */
+.reportTable th:last-child,
+.reportTable th:last-child * {
+    text-align: center !important;
+}
